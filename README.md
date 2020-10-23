@@ -1,6 +1,6 @@
 # MC536 
 # Projeto: Saúde Mental: a felicidade tem lugar para acontecer?
-# Grupo: PsicHealth
+# Grupo: PsycHealth
 ## Participantes:
 
 Christian Massao Konishi, 214570;
