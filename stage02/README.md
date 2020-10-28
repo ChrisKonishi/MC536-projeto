@@ -1,7 +1,7 @@
 # Modelo para Apresentação da Etapa 02 - Descrição da Proposta
 
 ## Slides da Proposta
-[Link](.\slides\Apresentação.pdf)
+[Link](./slides/Apresentação.pdf)
 
 ## Motivação e Contexto
 - Depois da própria COVID-19, saúde mental está sendo um tópico bem quente para
