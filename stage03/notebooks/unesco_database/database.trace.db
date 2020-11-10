@@ -1,0 +1,515 @@
+2020-11-09 21:31:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE IF EXISTS '2015'[*]"; expected "identifier"; SQL statement:
+DROP TABLE IF EXISTS '2015' [42001-197]
+2020-11-09 21:32:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE IF EXISTS 2015[*]"; expected "identifier"; SQL statement:
+DROP TABLE IF EXISTS 2015 [42001-197]
+2020-11-09 21:32:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE IF EXISTS 2015[*]"; expected "identifier"; SQL statement:
+DROP TABLE IF EXISTS 2015 [42001-197]
+2020-11-09 21:33:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE A2015 (
+LOCAL VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+200343[*] DOUBLE,
+200144 DOUBLE,
+200345 DOUBLE,
+200151 DOUBLE,
+SP_RUR_TOTL_ZS , DOUBLE
+200101 DOUBLE,
+
+PRIMARY KEY(LOCAL)
+) AS SELECT
+LOCAL,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+200343,
+200144,
+200345,
+200151,
+SP_RUR_TOTL_ZS,
+200101
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') "; expected "identifier"; SQL statement:
+CREATE TABLE a2015 (
+Local VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+200343 DOUBLE,
+200144 DOUBLE,
+200345 DOUBLE,
+200151 DOUBLE,
+SP_RUR_TOTL_ZS , DOUBLE
+200101 DOUBLE,
+
+PRIMARY KEY(Local)
+) AS SELECT
+Local,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+200343,
+200144,
+200345,
+200151,
+SP_RUR_TOTL_ZS,
+200101
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') [42001-197]
+2020-11-09 21:34:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: ","; SQL statement:
+CREATE TABLE a2015 (
+Local VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS , DOUBLE
+"200101" DOUBLE,
+
+PRIMARY KEY(Local)
+) AS SELECT
+Local,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') [50004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4400)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:4215)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:6662)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6570)
+	at org.h2.command.Parser.parseCreate(Parser.java:4615)
+	at org.h2.command.Parser.parsePrepared(Parser.java:380)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-09 21:34:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE A2015 (
+LOCAL VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+""200343"" DOUBLE,
+""200144"" DOUBLE,
+""200345"" DOUBLE,
+""200151"" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE
+""200101""[*] DOUBLE,
+
+PRIMARY KEY(LOCAL)
+) AS SELECT
+LOCAL,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+""200343"",
+""200144"",
+""200345"",
+""200151"",
+SP_RUR_TOTL_ZS,
+""200101""
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') "; expected "PRECISION, (, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE a2015 (
+Local VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE
+"200101" DOUBLE,
+
+PRIMARY KEY(Local)
+) AS SELECT
+Local,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') [42001-197]
+2020-11-09 21:35:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE A2015 (
+LOCAL VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+200343[*] DOUBLE,
+200144 DOUBLE,
+200345 DOUBLE,
+200151 DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE
+200101 DOUBLE,
+
+PRIMARY KEY(LOCAL)
+) AS SELECT
+LOCAL,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+200343,
+200144,
+200345,
+200151,
+SP_RUR_TOTL_ZS,
+200101
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') "; expected "identifier"; SQL statement:
+CREATE TABLE a2015 (
+Local VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+200343 DOUBLE,
+200144 DOUBLE,
+200345 DOUBLE,
+200151 DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE
+200101 DOUBLE,
+
+PRIMARY KEY(Local)
+) AS SELECT
+Local,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+200343,
+200144,
+200345,
+200151,
+SP_RUR_TOTL_ZS,
+200101
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') [42001-197]
+2020-11-09 21:36:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE A2015 (
+LOCAL VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+""200343"" DOUBLE,
+""200144"" DOUBLE,
+""200345"" DOUBLE,
+""200151"" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE
+""200101""[*] DOUBLE,
+
+PRIMARY KEY(LOCAL)
+) AS SELECT
+LOCAL,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+""200343"",
+""200144"",
+""200345"",
+""200151"",
+SP_RUR_TOTL_ZS,
+""200101""
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') "; expected "PRECISION, (, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE a2015 (
+Local VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE
+"200101" DOUBLE,
+
+PRIMARY KEY(Local)
+) AS SELECT
+Local,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2015.csv') [42001-197]
+2020-11-09 21:39:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'null' (A2015: SP_DYN_IMRT_IN DOUBLE)"; SQL statement:
+ -- row #2 ('ABW', '76.0', 'null', '2919553073.0', '27981.0', '5.7', '20.0', '15.0', '57.0', '13.0', '57.0', '104.0') [22018-197]
+2020-11-09 21:47:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A2015" already exists; SQL statement:
+CREATE TABLE a2015 (
+Local VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local)
+) AS SELECT
+Local,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2018.csv') [42101-197]
+2020-11-09 21:47:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A2018" already exists; SQL statement:
+CREATE TABLE a2018 (
+Local VARCHAR(4) NOT NULL,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local)
+) AS SELECT
+Local,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_socio_eco_2018.csv') [42101-197]
+2020-11-09 22:02:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "NUMERO" not found; SQL statement:
+CREATE TABLE Anos (
+ano integer,
+PRIMARY KEY(numero)
+) [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:119)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:88)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:122)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-09 22:02:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "AN.NUMERO" not found; SQL statement:
+select *
+from a2015 A, anos An
+where An.numero = 2015 [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.expression.Comparison.optimize(Comparison.java:177)
+	at org.h2.command.dml.Select.prepare(Select.java:861)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-09 22:04:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE VIEW A2015C
+SELECT[*] *
+FROM A2015 A, ANOS AN
+WHERE AN.ANO = 2015 "; expected "., COMMENT, (, AS"; SQL statement:
+create view a2015c
+select *
+from a2015 A, anos An
+where An.ano = 2015 [42001-197]
+2020-11-09 22:09:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A2015C" not found; SQL statement:
+create view indicadores as
+select *
+from a2015c
+union
+select *
+from a2016c
+union
+select *
+from a2017c
+union
+select *
+from a2018c
+union
+select *
+from a2019c [42102-197]
+2020-11-09 22:11:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A2015C" not found; SQL statement:
+select * from a2015c [42102-197]
+2020-11-09 22:11:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE VIEW A2015C
+SELECT[*] *
+FROM A2015 A, ANOS AN
+WHERE AN.ANO = 2015 "; expected "., COMMENT, (, AS"; SQL statement:
+create view a2015c
+select *
+from a2015 A, anos An
+where An.ano = 2015 [42001-197]
+2020-11-09 22:12:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE VIEW A2015C
+SELECT[*] *
+FROM A2015 A, ANOS AN
+WHERE AN.ANO = 2015 "; expected "., COMMENT, (, AS"; SQL statement:
+create view a2015c
+select *
+from a2015 A, anos An
+where An.ano = 2015 [42001-197]
+2020-11-09 22:13:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "ANOS" not found; SQL statement:
+select * from indicadores
+order by anos [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-09 22:13:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "INDICADORES.ANOS" not found; SQL statement:
+select * from indicadores
+order by indicadores.anos [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
