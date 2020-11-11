@@ -1937,3 +1937,134 @@ FROM CSVREAD('./datasets/WHR/2018.csv') [42122-197]
 2020-11-11 13:11:05 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Data conversion error converting "'N/A' (WHR2018: GOVCORRUPTION DOUBLE)"; SQL statement:
  -- row #21 ('United Arab Emirates', '20', '6.774', '2.096', '0.776', '0.670', '0.284', 'N/A', '0.186') [22018-197]
+2020-11-11 15:10:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNTRY, NAME FROM
+(SELECT W.*, C.NAME, C.ALPHA3
+FROM WHR2019 W LEFT JOIN COUNTRIES C
+ON W.COUNTRY = C.NAME)
+NAME =[*] NULL "; SQL statement:
+select country, name from
+(select w.*, c.name, c.alpha3
+from whr2019 w left join countries c
+ON w.country = c.name)
+name = null [42000-197]
+2020-11-11 15:10:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNTRY, NAME FROM
+(SELECT W.*, C.NAME, C.ALPHA3
+FROM WHR2019 W LEFT JOIN COUNTRIES C
+ON W.COUNTRY = C.NAME)
+NAME =[*] """" "; SQL statement:
+select country, name from
+(select w.*, c.name, c.alpha3
+from whr2019 w left join countries c
+ON w.country = c.name)
+name = "" [42000-197]
+2020-11-11 15:10:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column  not found; SQL statement:
+select country, name from
+(select w.*, c.name, c.alpha3
+from whr2019 w left join countries c
+ON w.country = c.name)
+where name = "" [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.expression.Comparison.optimize(Comparison.java:179)
+	at org.h2.command.dml.Select.prepare(Select.java:861)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 15:11:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Invalid parameter count for "ISNULL", expected count: "2"; SQL statement:
+select country, name from
+(select w.*, c.name, c.alpha3
+from whr2019 w left join countries c
+ON w.country = c.name)
+where isnull(name) [7001-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.expression.Function.doneWithParameters(Function.java:2109)
+	at org.h2.command.Parser.readFunction(Parser.java:2912)
+	at org.h2.command.Parser.readTerm(Parser.java:3102)
+	at org.h2.command.Parser.readFactor(Parser.java:2587)
+	at org.h2.command.Parser.readSum(Parser.java:2574)
+	at org.h2.command.Parser.readConcat(Parser.java:2544)
+	at org.h2.command.Parser.readCondition(Parser.java:2370)
+	at org.h2.command.Parser.readAnd(Parser.java:2342)
+	at org.h2.command.Parser.readExpression(Parser.java:2334)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2291)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:2133)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1946)
+	at org.h2.command.Parser.parseSelect(Parser.java:1919)
+	at org.h2.command.Parser.parsePrepared(Parser.java:463)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 15:11:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Function "ISEMPTY" not found; SQL statement:
+select country, name from
+(select w.*, c.name, c.alpha3
+from whr2019 w left join countries c
+ON w.country = c.name)
+where isempty(name) [90022-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readJavaFunction(Parser.java:2699)
+	at org.h2.command.Parser.readFunction(Parser.java:2756)
+	at org.h2.command.Parser.readTerm(Parser.java:3102)
+	at org.h2.command.Parser.readFactor(Parser.java:2587)
+	at org.h2.command.Parser.readSum(Parser.java:2574)
+	at org.h2.command.Parser.readConcat(Parser.java:2544)
+	at org.h2.command.Parser.readCondition(Parser.java:2370)
+	at org.h2.command.Parser.readAnd(Parser.java:2342)
+	at org.h2.command.Parser.readExpression(Parser.java:2334)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2291)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:2133)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1946)
+	at org.h2.command.Parser.parseSelect(Parser.java:1919)
+	at org.h2.command.Parser.parsePrepared(Parser.java:463)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)

@@ -1,0 +1,12 @@
+whr, official
+"Bolivia","Bolivia (Plurinational State of)"
+"Czech Republic","Czechia"
+"Iran","Iran (Islamic Republic of)"
+"Macedonia","North Macedonia"
+"Russia","Russian Federation"
+"South Korea","Korea, Republic of"
+"Syria","Syrian Arab Republic"
+"Taiwan","Taiwan, Province of China"
+"United Kingdom","United Kingdom of Great Britain and Northern Ireland"
+"United States","United States of America"
+"Venezuela","Venezuela (Bolivarian Republic of)"
