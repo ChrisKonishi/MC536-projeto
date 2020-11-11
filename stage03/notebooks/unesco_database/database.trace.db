@@ -1232,3 +1232,708 @@ DROP TABLE IF EXISTS CountryRead [90107-197]
 	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 12:56:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE WHR2015 (
+COUNTRY VARCHAR(100),
+HAPPINESSRANK INTEGER,
+HAPPINESSSCORE DOUBLE,
+HAPPYSTDERROR DOUBLE,
+GDPPERCAPITA DOUBLE,
+FAMILY DOUBLE,
+LIFEEXPECTANCY DOUBLE,
+FREEDOM DOUBLE,
+GOVCORRUPTION DOUBLE,
+GENEROSITY DOUBLE,
+PRIMARY KEY(COUNTRY)
+) AS SELECT
+COUNTRY,
+""Happiness Rank"",
+""Happiness Score"",
+""Standard Error"",
+""Economy (GDP per Capita)"",
+FAMILY,
+""Health (Life Expectancy)"",
+FREEDOM,
+""Trust (Government Corruption)"",
+GENEROSITY,
+FROM CSVREAD('./datasets/WHR/2015.csv') [*]"; expected "USE, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+CREATE TABLE WHR2015 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+HappySTDError DOUBLE,
+GDPPERCAPITA DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+"Happiness Rank",
+"Happiness Score",
+"Standard Error",
+"Economy (GDP per Capita)",
+Family,
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+FROM CSVREAD('./datasets/WHR/2015.csv') [42001-197]
+2020-11-11 12:59:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Standard Error" not found; SQL statement:
+CREATE TABLE WHR2016 (
+Country VARCHAR(100),
+Region VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+STDErr DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+DystopiaResidual DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+Region,
+"Happiness Rank",
+"Happiness Score",
+"Standard Error",
+"Economy (GDP per Capita)",
+Family,
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+"Dystopia Residual"
+FROM CSVREAD('./datasets/WHR/2016.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:02:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "REGION" not found; SQL statement:
+CREATE TABLE WHR2017 (
+Country VARCHAR(100),
+Region VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+DystopiaResidual DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+Region,
+"Happiness Rank",
+"Happiness Score",
+"Economy (GDP per Capita)",
+Family,
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+"Dystopia Residual"
+FROM CSVREAD('./datasets/WHR/2017.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:02:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Happiness Rank" not found; SQL statement:
+CREATE TABLE WHR2017 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+DystopiaResidual DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+"Happiness Rank",
+"Happiness Score",
+"Economy (GDP per Capita)",
+Family,
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+"Dystopia Residual"
+FROM CSVREAD('./datasets/WHR/2017.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:02:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Happiness Rank" not found; SQL statement:
+CREATE TABLE WHR2017 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+DystopiaResidual DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+"Happiness Rank",
+"Happiness Score",
+"Economy (GDP per Capita)",
+Family,
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+"Dystopia Residual"
+FROM CSVREAD('./datasets/WHR/2017.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:04:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Economy..GDP.per.Capita)" not found; SQL statement:
+CREATE TABLE WHR2017 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+DystopiaResidual DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+"Happiness.Rank",
+"Happiness.Score",
+"Economy..GDP.per.Capita)",
+Family,
+"Health..Life.Expectancy)",
+Freedom,
+"Trust..Government.Corruption)",
+Generosity,
+"Dystopia.Residual"
+FROM CSVREAD('./datasets/WHR/2017.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:04:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Economy..GDP.per.Capita" not found; SQL statement:
+CREATE TABLE WHR2017 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+DystopiaResidual DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+"Happiness.Rank",
+"Happiness.Score",
+"Economy..GDP.per.Capita",
+Family,
+"Health..Life.Expectancy",
+Freedom,
+"Trust..Government.Corruption",
+Generosity,
+"Dystopia.Residual"
+FROM CSVREAD('./datasets/WHR/2017.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:04:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Trust..Government.Corruption" not found; SQL statement:
+CREATE TABLE WHR2017 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+DystopiaResidual DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+"Happiness.Rank",
+"Happiness.Score",
+"Economy..GDP.per.Capita.",
+Family,
+"Health..Life.Expectancy.",
+Freedom,
+"Trust..Government.Corruption",
+Generosity,
+"Dystopia.Residual"
+FROM CSVREAD('./datasets/WHR/2017.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:08:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE WHR2015 (
+COUNTRY VARCHAR(100),
+HAPPINESSRANK INTEGER,
+HAPPINESSSCORE DOUBLE,
+GDPCAPITA DOUBLE,
+FAMILY DOUBLE,
+LIFEEXPECTANCY DOUBLE,
+FREEDOM DOUBLE,
+GOVCORRUPTION DOUBLE,
+GENEROSITY DOUBLE,
+PRIMARY KEY(COUNTRY)
+) AS SELECT
+COUNTRY,
+""Happiness Rank"",
+""Happiness Score"",
+""Economy (GDP per Capita)"",
+FAMILY,
+""Health (Life Expectancy)"",
+FREEDOM,
+""Trust (Government Corruption)"",
+GENEROSITY,
+FROM CSVREAD('./datasets/WHR/2015.csv') [*]"; expected "USE, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+CREATE TABLE WHR2015 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+"Happiness Rank",
+"Happiness Score",
+"Economy (GDP per Capita)",
+Family,
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+FROM CSVREAD('./datasets/WHR/2015.csv') [42001-197]
+2020-11-11 13:09:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Overall Rank" not found; SQL statement:
+CREATE TABLE WHR2018 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+"Country or region",
+"Overall Rank",
+"Score",
+"GDP per Capita",
+Family,
+"Health..Life.Expectancy.",
+"Freedom to make life choices",
+"Perceptions of corruption",
+Generosity
+FROM CSVREAD('./datasets/WHR/2018.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:09:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Score" not found; SQL statement:
+CREATE TABLE WHR2018 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+"Country or region",
+"Overall rank",
+"Score",
+"GDP per Capita",
+Family,
+"Health Life Expectancy.",
+"Freedom to make life choices",
+"Perceptions of corruption",
+Generosity
+FROM CSVREAD('./datasets/WHR/2018.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:09:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "GDP per Capita" not found; SQL statement:
+CREATE TABLE WHR2018 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+"Country or region",
+"Overall rank",
+Score,
+"GDP per Capita",
+Family,
+"Health Life Expectancy.",
+"Freedom to make life choices",
+"Perceptions of corruption",
+Generosity
+FROM CSVREAD('./datasets/WHR/2018.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:10:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "FAMILY" not found; SQL statement:
+CREATE TABLE WHR2018 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+"Country or region",
+"Overall rank",
+Score,
+"GDP per capita",
+Family,
+"Health Life Expectancy.",
+"Freedom to make life choices",
+"Perceptions of corruption",
+Generosity
+FROM CSVREAD('./datasets/WHR/2018.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:10:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Health Life Expectancy." not found; SQL statement:
+CREATE TABLE WHR2018 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+"Country or region",
+"Overall rank",
+Score,
+"GDP per capita",
+"Social support",
+"Health Life Expectancy.",
+"Freedom to make life choices",
+"Perceptions of corruption",
+Generosity
+FROM CSVREAD('./datasets/WHR/2018.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:10:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Health Life Expectancy" not found; SQL statement:
+CREATE TABLE WHR2018 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+"Country or region",
+"Overall rank",
+Score,
+"GDP per capita",
+"Social support",
+"Health Life Expectancy",
+"Freedom to make life choices",
+"Perceptions of corruption",
+Generosity
+FROM CSVREAD('./datasets/WHR/2018.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:10:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Health life expectancy" not found; SQL statement:
+CREATE TABLE WHR2018 (
+Country VARCHAR(100),
+HappinessRank INTEGER,
+HappinessScore DOUBLE,
+GDPCapita DOUBLE,
+Family DOUBLE,
+LifeExpectancy DOUBLE,
+Freedom DOUBLE,
+GovCorruption DOUBLE,
+Generosity DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+"Country or region",
+"Overall rank",
+Score,
+"GDP per capita",
+"Social support",
+"Health life expectancy",
+"Freedom to make life choices",
+"Perceptions of corruption",
+Generosity
+FROM CSVREAD('./datasets/WHR/2018.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 13:11:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'N/A' (WHR2018: GOVCORRUPTION DOUBLE)"; SQL statement:
+ -- row #21 ('United Arab Emirates', '20', '6.774', '2.096', '0.776', '0.670', '0.284', 'N/A', '0.186') [22018-197]
