@@ -2462,3 +2462,136 @@ org.h2.jdbc.JdbcSQLException: Data conversion error converting "'United States o
 2020-11-11 16:50:44 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Data conversion error converting "'Taiwan' (WHR2017: HAPPINESSRANK INTEGER)"; SQL statement:
  -- row #34 ('', 'Taiwan', 'Province of China" Province of China"', '6.49459602192044', '6.34940384075046', '1.43362653255463', '1.38456535339355', '0.361466586589813', '0.793984234333038') [22018-197]
+2020-11-11 17:17:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE VIEW WHRIND AS
+SELECT * FROM WHR15
+UNION
+SELECT * FROM WHR16
+UNION
+SELECT * FROM WHR17
+UNION
+SELECT * FROM WHR18
+UNION
+SELECT * FROM WHR18
+
+
+SELECT[*] * FROM WHRIND "; SQL statement:
+create view whrind as
+select * from whr15
+union
+select * from whr16
+union
+select * from whr17
+union
+select * from whr18
+union
+select * from whr18
+
+
+select * from whrind [42000-197]
+2020-11-11 17:18:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ORDER[*] BY HAPPINESSRANK, ANO
+
+SELECT * FROM WHRIND "; SQL statement:
+order by happinessrank, ano
+
+select * from whrind [42000-197]
+2020-11-11 17:19:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot drop "WHR15" because "WHRIND" depends on it; SQL statement:
+drop table if exists whr15 [90107-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:99)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:129)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 17:28:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot drop "WHR2015" because "WHR15" depends on it; SQL statement:
+DROP TABLE IF EXISTS WHR2015 [90107-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:99)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:129)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 17:32:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WHERE[*]
+I.LOCAL = W.ALPHA3 "; expected "WITH, {"; SQL statement:
+where
+i.local = w.alpha3 [42001-197]
+2020-11-11 17:33:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WHERE[*]
+I.LOCAL = W.ALPHA3 "; expected "WITH, {"; SQL statement:
+where
+i.local = w.alpha3 [42001-197]
+2020-11-11 17:33:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WHERE[*]
+I.LOCAL = W.ALPHA3 "; expected "WITH, {"; SQL statement:
+where
+i.local = w.alpha3 [42001-197]
+2020-11-11 17:34:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM
+INDICADORES IWHERE
+I[*].LOCAL          3 "; SQL statement:
+select *
+from
+indicadores iwhere
+i.local-- w.alpha3 [42000-197]
+2020-11-11 17:34:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM
+INDICADORES IWHERE
+I[*].LOCAL "; SQL statement:
+select *
+from
+indicadores iwhere
+i.local [42000-197]
+2020-11-11 17:38:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "W.NAME" not found; SQL statement:
+select i.local
+from
+indicadores i, whraux w
+where
+i.local = w.name [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.expression.Comparison.optimize(Comparison.java:179)
+	at org.h2.command.dml.Select.prepare(Select.java:861)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
