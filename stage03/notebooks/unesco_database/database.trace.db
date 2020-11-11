@@ -765,3 +765,470 @@ org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM INDIC
 SORT BY[*] LOCAL "; SQL statement:
 select * from indicadores
 sort by local [42000-197]
+2020-11-11 12:23:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "RESIDUAL"; SQL statement:
+CREATE TABLE WHR2015 (
+Country VARCHAR(100),
+Region VARCHAR(100),
+"Happiness Rank" INTEGER,
+"Happiness Score" DOUBLE,
+"Standard Error" DOUBLE,
+"Economy (GDP per Capita)" DOUBLE,
+"Family" DOUBLE,
+"Health (Life Expectancy)" DOUBLE,
+Freedom DOUBLE,
+"Trust (Government Corruption)" DOUBLE,
+Generosity DOUBLE,
+Dystopia Residual DOUBLE
+
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+Region,
+"Happiness Rank",
+"Happiness Score",
+"Standard Error",
+"Economy (GDP per Capita)",
+"Family" DOUBLE,
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+Dystopia Residual
+FROM CSVREAD('./datasets/WHR/2015.csv') [50004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4400)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:4215)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:6662)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6570)
+	at org.h2.command.Parser.parseCreate(Parser.java:4615)
+	at org.h2.command.Parser.parsePrepared(Parser.java:380)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 12:23:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE WHR2015 (
+COUNTRY VARCHAR(100),
+REGION VARCHAR(100),
+""Happiness Rank"" INTEGER,
+""Happiness Score"" DOUBLE,
+""Standard Error"" DOUBLE,
+""Economy (GDP per Capita)"" DOUBLE,
+""Family"" DOUBLE,
+""Health (Life Expectancy)"" DOUBLE,
+FREEDOM DOUBLE,
+""Trust (Government Corruption)"" DOUBLE,
+GENEROSITY DOUBLE,
+""Dystopia Residual"" DOUBLE
+
+PRIMARY KEY([*]COUNTRY)
+) AS SELECT
+COUNTRY,
+REGION,
+""Happiness Rank"",
+""Happiness Score"",
+""Standard Error"",
+""Economy (GDP per Capita)"",
+""Family"",
+""Health (Life Expectancy)"",
+FREEDOM,
+""Trust (Government Corruption)"",
+GENEROSITY,
+DYSTOPIA RESIDUAL
+FROM CSVREAD('./datasets/WHR/2015.csv') "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE WHR2015 (
+Country VARCHAR(100),
+Region VARCHAR(100),
+"Happiness Rank" INTEGER,
+"Happiness Score" DOUBLE,
+"Standard Error" DOUBLE,
+"Economy (GDP per Capita)" DOUBLE,
+"Family" DOUBLE,
+"Health (Life Expectancy)" DOUBLE,
+Freedom DOUBLE,
+"Trust (Government Corruption)" DOUBLE,
+Generosity DOUBLE,
+"Dystopia Residual" DOUBLE
+
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+Region,
+"Happiness Rank",
+"Happiness Score",
+"Standard Error",
+"Economy (GDP per Capita)",
+"Family",
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+Dystopia Residual
+FROM CSVREAD('./datasets/WHR/2015.csv') [42001-197]
+2020-11-11 12:25:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE WHR2015 (
+COUNTRY VARCHAR(100),
+REGION VARCHAR(100),
+""Happiness Rank"" INTEGER,
+""Happiness Score"" DOUBLE,
+""Standard Error"" DOUBLE,
+""Economy (GDP per Capita)"" DOUBLE,
+""Family"" DOUBLE,
+""Health (Life Expectancy)"" DOUBLE,
+FREEDOM DOUBLE,
+""Trust (Government Corruption)"" DOUBLE,
+GENEROSITY DOUBLE,
+""Dystopia Residual"" DOUBLE
+
+PRIMARY KEY([*]COUNTRY)
+) AS SELECT
+COUNTRY,
+REGION,
+""Happiness Rank"",
+""Happiness Score"",
+""Standard Error"",
+""Economy (GDP per Capita)"",
+""Family"",
+""Health (Life Expectancy)"",
+FREEDOM,
+""Trust (Government Corruption)"",
+GENEROSITY,
+DYSTOPIA RESIDUAL
+FROM CSVREAD('./datasets/WHR/2015.csv') "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE WHR2015 (
+Country VARCHAR(100),
+Region VARCHAR(100),
+"Happiness Rank" INTEGER,
+"Happiness Score" DOUBLE,
+"Standard Error" DOUBLE,
+"Economy (GDP per Capita)" DOUBLE,
+"Family" DOUBLE,
+"Health (Life Expectancy)" DOUBLE,
+Freedom DOUBLE,
+"Trust (Government Corruption)" DOUBLE,
+Generosity DOUBLE,
+"Dystopia Residual" DOUBLE
+
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+Region,
+"Happiness Rank",
+"Happiness Score",
+"Standard Error",
+"Economy (GDP per Capita)",
+"Family",
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+Dystopia Residual
+FROM CSVREAD('./datasets/WHR/2015.csv') [42001-197]
+2020-11-11 12:25:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE WHR2015 (
+COUNTRY VARCHAR(100),
+REGION VARCHAR(100),
+""Happiness Rank"" INTEGER,
+""Happiness Score"" DOUBLE,
+""Standard Error"" DOUBLE,
+""Economy (GDP per Capita)"" DOUBLE,
+""Family"" DOUBLE,
+""Health (Life Expectancy)"" DOUBLE,
+FREEDOM DOUBLE,
+""Trust (Government Corruption)"" DOUBLE,
+GENEROSITY DOUBLE,
+""Dystopia Residual"" DOUBLE
+
+PRIMARY KEY([*]COUNTRY)
+) AS SELECT
+COUNTRY,
+REGION,
+""Happiness Rank"",
+""Happiness Score"",
+""Standard Error"",
+""Economy (GDP per Capita)"",
+""Family"",
+""Health (Life Expectancy)"",
+FREEDOM,
+""Trust (Government Corruption)"",
+GENEROSITY,
+""Dystopia Residual""
+FROM CSVREAD('./datasets/WHR/2015.csv') "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE WHR2015 (
+Country VARCHAR(100),
+Region VARCHAR(100),
+"Happiness Rank" INTEGER,
+"Happiness Score" DOUBLE,
+"Standard Error" DOUBLE,
+"Economy (GDP per Capita)" DOUBLE,
+"Family" DOUBLE,
+"Health (Life Expectancy)" DOUBLE,
+Freedom DOUBLE,
+"Trust (Government Corruption)" DOUBLE,
+Generosity DOUBLE,
+"Dystopia Residual" DOUBLE
+
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+Region,
+"Happiness Rank",
+"Happiness Score",
+"Standard Error",
+"Economy (GDP per Capita)",
+"Family",
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+"Dystopia Residual"
+FROM CSVREAD('./datasets/WHR/2015.csv') [42001-197]
+2020-11-11 12:26:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Family" not found; SQL statement:
+CREATE TABLE WHR2015 (
+Country VARCHAR(100),
+Region VARCHAR(100),
+"Happiness Rank" INTEGER,
+"Happiness Score" DOUBLE,
+"Standard Error" DOUBLE,
+"Economy (GDP per Capita)" DOUBLE,
+"Family" DOUBLE,
+"Health (Life Expectancy)" DOUBLE,
+Freedom DOUBLE,
+"Trust (Government Corruption)" DOUBLE,
+Generosity DOUBLE,
+"Dystopia Residual" DOUBLE,
+PRIMARY KEY(Country)
+) AS SELECT
+Country,
+Region,
+"Happiness Rank",
+"Happiness Score",
+"Standard Error",
+"Economy (GDP per Capita)",
+"Family",
+"Health (Life Expectancy)",
+Freedom,
+"Trust (Government Corruption)",
+Generosity,
+"Dystopia Residual"
+FROM CSVREAD('./datasets/WHR/2015.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 12:34:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "-"; SQL statement:
+CREATE TABLE Countries (
+name VARCHAR(100),
+alpha-2 VARCHAR(5),
+alpha-3 VARCHAR(5),
+region VARCHAR(100),
+sub-region VARCHAR(100),
+PRIMARY KEY(alpha-3)
+) AS SELECT
+name,
+alpha-2,
+alpha-3,
+region,
+sub-region
+FROM CSVREAD('./datasets/country_code_region.csv') [50004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4400)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:4215)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:6662)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6570)
+	at org.h2.command.Parser.parseCreate(Parser.java:4615)
+	at org.h2.command.Parser.parsePrepared(Parser.java:380)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 12:34:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "-"; SQL statement:
+CREATE TABLE Countries (
+name VARCHAR(100),
+alpha2 VARCHAR(5),
+alpha3 VARCHAR(5),
+region VARCHAR(100),
+sub-region VARCHAR(100),
+PRIMARY KEY(alpha3)
+) AS SELECT
+name,
+"alpha-2",
+"alpha-3",
+region,
+sub-region
+FROM CSVREAD('./datasets/country_code_region.csv') [50004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4400)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:4215)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:6662)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6570)
+	at org.h2.command.Parser.parseCreate(Parser.java:4615)
+	at org.h2.command.Parser.parsePrepared(Parser.java:380)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 12:34:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COUNTRIES" already exists; SQL statement:
+CREATE TABLE Countries (
+name VARCHAR(100),
+alpha2 VARCHAR(5),
+alpha3 VARCHAR(5),
+region VARCHAR(100),
+subregion VARCHAR(100),
+PRIMARY KEY(alpha3)
+) AS SELECT
+name,
+"alpha-2",
+"alpha-3",
+region,
+"sub-region"
+FROM CSVREAD('./datasets/country_code_region.csv') [42101-197]
+2020-11-11 12:35:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLES[*] IF EXISTS COUNTRIES "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP TABLES IF EXISTS Countries [42001-197]
+2020-11-11 12:38:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT UNIQUE[*] SUBREGION, REGION
+FROM COUNTRYREAD "; expected "TOP, LIMIT, DISTINCT, ALL, *, NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+SELECT UNIQUE subregion, region
+FROM CountryRead [42001-197]
+2020-11-11 12:39:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WHERE REGION[*]""- ''
+
+
+SELECT * from countryRead"; SQL statement:
+WHERE REGION"- ''
+
+
+SELECT * from countryRead [42000-197]
+2020-11-11 12:39:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WHERE REGION[*]"" != ''
+
+
+SELECT * from countryRead"; SQL statement:
+WHERE REGION" != ''
+
+
+SELECT * from countryRead [42000-197]
+2020-11-11 12:39:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WHERE[*] REGION != ''
+
+
+SELECT * FROM COUNTRYREAD "; expected "WITH, {"; SQL statement:
+WHERE REGION != ''
+
+
+SELECT * from countryRead [42001-197]
+2020-11-11 12:40:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WHERE[*] REGION != ''
+
+
+SELECT * FROM COUNTRYREAD "; expected "WITH, {"; SQL statement:
+WHERE region != ''
+
+
+SELECT * from countryRead [42001-197]
+2020-11-11 12:40:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WHERE[*] REGION != NULL
+
+
+SELECT * FROM COUNTRYREAD "; expected "WITH, {"; SQL statement:
+WHERE region != null
+
+
+SELECT * from countryRead [42001-197]
+2020-11-11 12:40:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT DISTINCT SUBREGION, REGION
+FROM COUNTRYREAD
+WHERE REGION != NULL
+
+
+SELECT[*] * FROM COUNTRYREAD "; SQL statement:
+SELECT DISTINCT subregion, region
+FROM CountryRead
+WHERE region != null
+
+
+SELECT * from countryRead [42000-197]
+2020-11-11 12:43:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot drop "COUNTRYREAD" because "REGION" depends on it; SQL statement:
+DROP TABLE IF EXISTS CountryRead [90107-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:99)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:129)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
