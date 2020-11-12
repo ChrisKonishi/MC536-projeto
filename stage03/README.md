@@ -53,4 +53,10 @@ a medicina.
 
 <img src="./images/modelo_logico.png">
 
-## Notebook
+## Notebooks
+
+[Notebook com as queries](./notebooks/make_db.ipynb)
+
+[Notebook que processa em python os dados Unesco](./notebooks/unesco.ipynb)
+
+[Notebook que processa em python os dados Unesco e WHR](./notebooks/unesco_WHR_SQL.ipynb)
