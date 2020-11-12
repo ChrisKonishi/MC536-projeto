@@ -47,6 +47,10 @@ a medicina.
 
 ## Modelo conceitual
 
+<img src="./images/modelo_conceitual.png">
+
 ## Modelo lógico
+
+<img src="./images/modelo_logico.png">
 
 ## Notebook
