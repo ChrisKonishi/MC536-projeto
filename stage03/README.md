@@ -20,7 +20,7 @@ a medicina.
 
 - Iremos verificar que indicadores estão associados a índices de fecilicide mais elevados.
 
-- Para isso podemso comparar a proporção de países felizes com a proporção de países felizes com determinada característa.
+- Para isso podemos comparar a proporção de países felizes com a proporção de países felizes com determinada característa.
 
 - Fazer o cálculo de correlação entre os indicadores pode ser interessante.
 
