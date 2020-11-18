@@ -1,4 +1,4 @@
-﻿ref_area,indicator,source,sex,classif1,time,obs_value,obs_status,note_classif,note_indicator,note_source
+ref_area,indicator,source,sex,classif1,time,obs_value,obs_status,note_classif,note_indicator,note_source
 ALB,SDG_0852_SEX_AGE_RT,BA:480,SEX_T,AGE_YTHADULT_YGE15,2015,17.193,,,,R1:3513
 ALB,SDG_0852_SEX_AGE_RT,BA:480,SEX_T,AGE_YTHADULT_Y15-64,2015,17.5806,,,,R1:3513
 ALB,SDG_0852_SEX_AGE_RT,BA:480,SEX_T,AGE_YTHADULT_Y15-24,2015,39.9773,,,,R1:3513
