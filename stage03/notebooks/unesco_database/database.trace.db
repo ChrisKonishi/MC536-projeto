@@ -2614,3 +2614,78 @@ DROP TABLE IF EXISTS Countries [90107-197]
 	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-12 02:04:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE UNPLOYMENT (
+NAME VARCHAR(100),
+SEX VARCHAR(10),
+CLASSIF1 VARCHAR(100),
+OBS_VALUE DOUBLE,
+PRIMARY KEY(NAME)
+) AS SELECT
+""name"",
+""sex"",
+""classif1"",
+""obs_value"",
+FROM CSVREAD('./ILOSTAT_processed/unployment_rate.csv')[*]"; expected "USE, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+CREATE TABLE UNPLOYMENT (
+NAME VARCHAR(100),
+SEX VARCHAR(10),
+CLASSIF1 VARCHAR(100),
+OBS_VALUE DOUBLE,
+PRIMARY KEY(NAME)
+) AS SELECT
+"name",
+"sex",
+"classif1",
+"obs_value",
+FROM CSVREAD('./ILOSTAT_processed/unployment_rate.csv') [42001-197]
+2020-11-12 02:08:01 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE UNPLOYMENT (
+NAME VARCHAR(100),
+SEX VARCHAR(10),
+CLASSIF1 VARCHAR(100),
+OBS_VALUE DOUBLE,
+PRIMARY KEY(NAME)
+) AS SELECT
+NAME,
+SEX,
+CLASSIF1,
+OBS_VALUE,
+FROM CSVREAD('./ILOSTAT_processed/unployment_rate.csv') [*]"; expected "USE, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+CREATE TABLE UNPLOYMENT (
+NAME VARCHAR(100),
+SEX VARCHAR(10),
+CLASSIF1 VARCHAR(100),
+OBS_VALUE DOUBLE,
+PRIMARY KEY(NAME)
+) AS SELECT
+name,
+sex,
+classif1,
+obs_value,
+FROM CSVREAD('./ILOSTAT_processed/unployment_rate.csv') [42001-197]
+2020-11-12 20:03:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE UNPLOYMENT (
+NAME VARCHAR(100),
+SEX VARCHAR(10),
+CLASSIF1 VARCHAR(100),
+OBS_VALUE DOUBLE,
+PRIMARY KEY(NAME)
+) AS SELECT
+NAME,
+SEX,
+CLASSIF1,
+OBS_VALUE,
+FROM CSVREAD('./ILOSTAT_processed/unployment_rate.csv') [*]"; expected "USE, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+CREATE TABLE UNPLOYMENT (
+NAME VARCHAR(100),
+SEX VARCHAR(10),
+CLASSIF1 VARCHAR(100),
+OBS_VALUE DOUBLE,
+PRIMARY KEY(NAME)
+) AS SELECT
+name,
+sex,
+classif1,
+obs_value,
+FROM CSVREAD('./ILOSTAT_processed/unployment_rate.csv') [42001-197]
