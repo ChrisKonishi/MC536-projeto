@@ -130,4 +130,8 @@ dmypy.json
 
 
 .vscode
+<<<<<<< HEAD
 *.db
+=======
+*.db
+>>>>>>> b4522a1c819899724b34b208cbc0af03718e9bdf
