@@ -1,0 +1,704 @@
+2020-11-11 21:51:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "UNESCO" already exists; SQL statement:
+CREATE TABLE UNESCO (
+Local VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local, ANO)
+) AS SELECT
+Local,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') [42101-197]
+2020-11-11 21:51:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE IF ALREADY[*] EXISTS UNESCO"; expected "EXISTS"; SQL statement:
+DROP TABLE IF ALREADY EXISTS UNESCO [42001-197]
+2020-11-11 21:54:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE UNESCODESC (
+CODIGO VARCHAR(100),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) FROM CSVREAD([*]'./unesco_processed_data/unesco_descricao.csv)"; SQL statement:
+CREATE TABLE UNESCODESC (
+CODIGO VARCHAR(100),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv) [42000-197]
+2020-11-11 21:54:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE UNESCODESC (
+CODIGO VARCHAR(100),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) FROM[*] CSVREAD('./unesco_processed_data/unesco_descricao.csv')"; SQL statement:
+CREATE TABLE UNESCODESC (
+CODIGO VARCHAR(100),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv') [42000-197]
+2020-11-11 21:55:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE UNESCODESC (
+CODIGO VARCHAR(100),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) FROM[*] CSVREAD('./unesco_processed_data/unesco_descricao.csv')"; SQL statement:
+CREATE TABLE UNESCODESC (
+CODIGO VARCHAR(100),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv') [42000-197]
+2020-11-11 21:55:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM UNESCODESC
+SELECT[*] * FROM UNESCO "; SQL statement:
+select * from unescodesc
+select * from unesco [42000-197]
+2020-11-11 21:58:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE UNESCO (
+LOCAL VARCHAR(4) NOT NULL,
+ANO INTEGER
+SP_DYN_LE00_IN[*] DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+""200343"" DOUBLE,
+""200144"" DOUBLE,
+""200345"" DOUBLE,
+""200151"" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+""200101"" DOUBLE,
+
+PRIMARY KEY(LOCAL, ANO)
+) AS SELECT
+LOCAL,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+""200343"",
+""200144"",
+""200345"",
+""200151"",
+SP_RUR_TOTL_ZS,
+""200101""
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') "; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE UNESCO (
+Local VARCHAR(4) NOT NULL,
+ANO INTEGER
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local, ANO)
+) AS SELECT
+Local,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') [42001-197]
+2020-11-11 21:58:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "UNESCO" already exists; SQL statement:
+CREATE TABLE UNESCO (
+Local VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local, ANO)
+) AS SELECT
+Local,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') [42101-197]
+2020-11-11 21:59:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE IF EXISTS UNESCO
+
+CREATE[*] TABLE UNESCO (
+LOCAL VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+""200343"" DOUBLE,
+""200144"" DOUBLE,
+""200345"" DOUBLE,
+""200151"" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+""200101"" DOUBLE,
+
+PRIMARY KEY(LOCAL, ANO)
+) AS SELECT
+LOCAL,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+""200343"",
+""200144"",
+""200345"",
+""200151"",
+SP_RUR_TOTL_ZS,
+""200101""
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') "; SQL statement:
+DROP TABLE IF EXISTS UNESCO
+
+CREATE TABLE UNESCO (
+Local VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local, ANO)
+) AS SELECT
+Local,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') [42000-197]
+2020-11-11 21:59:11 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE IF EXISTS UNESCO
+
+CREATE[*] TABLE UNESCO (
+LOCAL VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+""200343"" DOUBLE,
+""200144"" DOUBLE,
+""200345"" DOUBLE,
+""200151"" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+""200101"" DOUBLE,
+
+PRIMARY KEY(LOCAL, ANO)
+) AS SELECT
+LOCAL,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+""200343"",
+""200144"",
+""200345"",
+""200151"",
+SP_RUR_TOTL_ZS,
+""200101""
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') "; SQL statement:
+DROP TABLE IF EXISTS UNESCO
+
+CREATE TABLE UNESCO (
+Local VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local, ANO)
+) AS SELECT
+Local,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') [42000-197]
+2020-11-11 22:01:08 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE UNESCODESC(
+CODIGO VARCHAR(50),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) AS SELECT * FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv')
+
+
+CREATE TABLE[*] UNESCO (
+LOCAL VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+""200343"" DOUBLE,
+""200144"" DOUBLE,
+""200345"" DOUBLE,
+""200151"" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+""200101"" DOUBLE,
+
+PRIMARY KEY(LOCAL, ANO)
+) AS SELECT
+LOCAL,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+""200343"",
+""200144"",
+""200345"",
+""200151"",
+SP_RUR_TOTL_ZS,
+""200101""
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') "; SQL statement:
+CREATE TABLE UNESCODESC(
+CODIGO VARCHAR(50),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) AS SELECT * FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv')
+
+
+CREATE TABLE UNESCO (
+Local VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local, ANO)
+) AS SELECT
+Local,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') [42000-197]
+2020-11-11 22:01:14 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "UNESCODESC" already exists; SQL statement:
+CREATE TABLE UNESCODESC(
+CODIGO VARCHAR(50),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) AS SELECT * FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv') [42101-197]
+2020-11-11 22:01:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE IF EXISTS UNESCODESC
+
+CREATE[*] TABLE UNESCODESC(
+CODIGO VARCHAR(50),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) AS SELECT * FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv')"; SQL statement:
+DROP TABLE IF EXISTS UNESCODESC
+
+CREATE TABLE UNESCODESC(
+CODIGO VARCHAR(50),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) AS SELECT * FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv') [42000-197]
+2020-11-11 22:01:38 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "UNESCODESC" already exists; SQL statement:
+CREATE TABLE UNESCODESC(
+CODIGO VARCHAR(50),
+DESCRICAO VARCHAR(100),
+PRIMARY KEY(CODIGO)
+) AS SELECT * FROM CSVREAD('./unesco_processed_data/unesco_descricao.csv') [42101-197]
+2020-11-11 22:06:58 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE WHR(
+COUNTRYCODE VARCHAR(5),
+ANO INTEGER,
+HAPPINESSRANK INTEGER,
+HAPPINESSSCORE DOUBLE,
+GDPCAPITA DOUBLE,
+FAMILY DOUBLE,
+LIFEEXPECTANCY DOUBLE,
+FREEDOM DOUBLE,
+GOVCORRUPTION DOUBLE,
+GENEROSITY DOUBLE,
+PRIMARY KEY(COUNTRYCODE, ANO)
+) AS SELECT
+ALPHA3,
+ANO,
+HAPPINESSRANK,
+HAPPINESSSCORE,
+GDPCAPITA,
+FAMILY,
+LIFEEXPECTANCY,
+FREEDOM,
+GOVCORRUPTION,
+GENEROSITY,
+FROM CSVREAD('./WHR_processed/whr_PROCESSADO.CSV')[*]"; expected "USE, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+CREATE TABLE WHR(
+COUNTRYCODE VARCHAR(5),
+ANO INTEGER,
+HAPPINESSRANK INTEGER,
+HAPPINESSSCORE DOUBLE,
+GDPCAPITA DOUBLE,
+FAMILY DOUBLE,
+LIFEEXPECTANCY DOUBLE,
+FREEDOM DOUBLE,
+GOVCORRUPTION DOUBLE,
+GENEROSITY DOUBLE,
+PRIMARY KEY(COUNTRYCODE, ANO)
+) AS SELECT
+ALPHA3,
+ANO,
+HAPPINESSRANK,
+HAPPINESSSCORE,
+GDPCAPITA,
+FAMILY,
+LIFEEXPECTANCY,
+FREEDOM,
+GOVCORRUPTION,
+GENEROSITY,
+FROM CSVREAD('./WHR_processed/whr_PROCESSADO.CSV') [42001-197]
+2020-11-11 22:11:23 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: IO Exception: "IOException reading ./processed_countries/regions.csv"; SQL statement:
+CREATE TABLE REGIONS(
+REGION VARCHAR(30)
+) AS SELECT * FROM  CSVREAD('./processed_countries/regions.csv') [90028-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.tools.Csv.convertException(Csv.java:590)
+	at org.h2.tools.Csv.read(Csv.java:197)
+	at org.h2.expression.Function.getValueForColumnList(Function.java:2535)
+	at org.h2.table.FunctionTable.<init>(FunctionTable.java:65)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1422)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:2138)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2287)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:2133)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1946)
+	at org.h2.command.Parser.parseSelect(Parser.java:1919)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6644)
+	at org.h2.command.Parser.parseCreate(Parser.java:4615)
+	at org.h2.command.Parser.parsePrepared(Parser.java:380)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:293)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:190)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.io.FileNotFoundException: .\processed_countries\regions.csv (O sistema não pode encontrar o caminho especificado)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at org.h2.store.fs.FilePathDisk.newInputStream(FilePathDisk.java:318)
+	at org.h2.store.fs.FileUtils.newInputStream(FileUtils.java:221)
+	at org.h2.tools.Csv.initRead(Csv.java:316)
+	at org.h2.tools.Csv.readResultSet(Csv.java:219)
+	at org.h2.tools.Csv.read(Csv.java:195)
+	... 28 more
+2020-11-11 22:16:36 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Column "ALPHA3" not found; SQL statement:
+CREATE TABLE COUNTRIES(
+ALPHA3 VARCHAR(5),
+ALPHA2 VARCHAR(5),
+COUNTRY VARCHAR(50),
+SUBREGION VARCHAR(30),
+PRIMARY KEY(ALPHA3)
+) AS SELECT
+ALPHA3,
+ALPHA2,
+NAME,
+SUBREGION
+FROM  CSVREAD('./countries_processed/subregions.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 22:17:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Column "ALPHA3" not found; SQL statement:
+CREATE TABLE COUNTRIES(
+ALPHA3 VARCHAR(5),
+ALPHA2 VARCHAR(5),
+COUNTRY VARCHAR(50),
+SUBREGION VARCHAR(30),
+PRIMARY KEY(ALPHA3)
+) AS SELECT
+"ALPHA3",
+ALPHA2,
+NAME,
+SUBREGION
+FROM  CSVREAD('./countries_processed/subregions.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:858)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 22:17:13 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "SUBREGION VARCHAR(30)": "'Latin America and the Caribbean' (31)"; SQL statement:
+CREATE TABLE COUNTRIES(
+ALPHA3 VARCHAR(5),
+ALPHA2 VARCHAR(5),
+COUNTRY VARCHAR(50),
+SUBREGION VARCHAR(30),
+PRIMARY KEY(ALPHA3)
+) AS SELECT
+ALPHA3,
+ALPHA2,
+NAME,
+SUBREGION
+FROM  CSVREAD('./countries_processed/countries.csv') [22001-197]
+2020-11-11 22:17:20 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "COUNTRY VARCHAR(50)": "'United Kingdom of Great Britain and Northern Ireland' (52)"; SQL statement:
+CREATE TABLE COUNTRIES(
+ALPHA3 VARCHAR(5),
+ALPHA2 VARCHAR(5),
+COUNTRY VARCHAR(50),
+SUBREGION VARCHAR(50),
+PRIMARY KEY(ALPHA3)
+) AS SELECT
+ALPHA3,
+ALPHA2,
+NAME,
+SUBREGION
+FROM  CSVREAD('./countries_processed/countries.csv') [22001-197]
+2020-11-11 22:17:25 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "COUNTRY VARCHAR(50)": "'United Kingdom of Great Britain and Northern Ireland' (52)"; SQL statement:
+CREATE TABLE COUNTRIES(
+ALPHA3 VARCHAR(5),
+ALPHA2 VARCHAR(5),
+COUNTRY VARCHAR(50),
+SUBREGION VARCHAR(100),
+PRIMARY KEY(ALPHA3)
+) AS SELECT
+ALPHA3,
+ALPHA2,
+NAME,
+SUBREGION
+FROM  CSVREAD('./countries_processed/countries.csv') [22001-197]
+2020-11-11 22:19:13 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Column "SUBREGION" not found; SQL statement:
+CREATE TABLE SUBREGIONS(
+SUBREGION VARCHAR(50),
+REGION VARCHAR(30),
+PRIMARY KEY(SUBREGION),
+FOREIGN KEY(REGION)
+REFERENCES REGIONS(SUBREGION)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+) AS SELECT * FROM  CSVREAD('./countries_processed/subregions.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:227)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:88)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:122)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-11 22:21:32 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Column "SP_DYN_LE00_IN" not found; SQL statement:
+CREATE TABLE UNESCO (
+Local VARCHAR(4) NOT NULL,
+ANO INTEGER,
+SP_DYN_LE00_IN DOUBLE ,
+SP_DYN_IMRT_IN DOUBLE,
+NY_GDP_MKTP_CD DOUBLE,
+NY_GDP_PCAP_CD DOUBLE,
+NY_GDP_MKTP_KD_ZG DOUBLE,
+"200343" DOUBLE,
+"200144" DOUBLE,
+"200345" DOUBLE,
+"200151" DOUBLE,
+SP_RUR_TOTL_ZS  DOUBLE,
+"200101" DOUBLE,
+
+PRIMARY KEY(Local, ANO),
+FOREIGN KEY(SP_DYN_LE00_IN)
+REFERENCES UNESCODESC(SP_DYN_LE00_IN)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+
+) AS SELECT
+Local,
+ANO,
+SP_DYN_LE00_IN,
+SP_DYN_IMRT_IN,
+NY_GDP_MKTP_CD,
+NY_GDP_PCAP_CD,
+NY_GDP_MKTP_KD_ZG,
+"200343",
+"200144",
+"200345",
+"200151",
+SP_RUR_TOTL_ZS,
+"200101"
+FROM CSVREAD('./unesco_processed_data/unesco_interest_data.csv') [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:227)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:88)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:122)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at org.apache.commons.dbcp2.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:198)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:232)
+	at com.twosigma.beakerx.sql.QueryExecutor.executeQuery(QueryExecutor.java:113)
+	at com.twosigma.beakerx.sql.evaluator.SQLEvaluator.executeQuery(SQLEvaluator.java:257)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:48)
+	at com.twosigma.beakerx.sql.evaluator.SQLCodeRunner.call(SQLCodeRunner.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
