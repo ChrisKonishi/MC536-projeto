@@ -1,5 +1,7 @@
 # Etapa 04 - Análises com o Segundo Modelo Lógico
 
+## Slides da Apresentação da Etapa
+[Slides](./slides/apresentacao.pdf)
 
 ## Motivação e Contexto
 - Depois da própria COVID-19, saúde mental está sendo um tópico bem quente para
