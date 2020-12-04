@@ -29,14 +29,19 @@ a medicina.
 ## Análise 2
 - Tendo indicadores associados a maiores índices de felicidade, iremos tentar agrupar os países similares.
 
-- Para isso, será definida uma função F(I), sendo I os indicadores do país. <br>
-F(I) é definida como:
-<img src="./assets/images/indice.jpeg">
-Sendo a correlação definida como:
-<img src="./assets/images/correlacao.jpeg">
+- Para isso, será definida uma função F(I), sendo I os indicadores do país.
+
 - Dois países serão similares se tiverem F(I) próximos.
 
-- Tendo os países similares, é possível contruir e visualizar um grafo dos países, coloridos de acordo com sua felicidade.
+- Tendo os países similares, é possível contruir e visualizar um grafo dos países, coloridos de acordo com sua felicidade. 
+
+  F(I) é definida como:
+  
+<img src="./assets/images/indice.jpeg">
+
+  Sendo a correlação definida como:
+  
+<img src="./assets/images/correlacao.jpeg">
 
 
 ## Bases de Dados
