@@ -29,8 +29,11 @@ a medicina.
 ## Análise 2
 - Tendo indicadores associados a maiores índices de felicidade, iremos tentar agrupar os países similares.
 
-- Para isso, será definida uma função F(I), sendo I os indicadores do país.
-
+- Para isso, será definida uma função F(I), sendo I os indicadores do país. <br>
+F(I) é definida como:
+<img src="./assets/images/indice.jpeg">
+Sendo a correlação definida como:
+<img src="./assets/images/correlacao.jpeg">
 - Dois países serão similares se tiverem F(I) próximos.
 
 - Tendo os países similares, é possível contruir e visualizar um grafo dos países, coloridos de acordo com sua felicidade.
@@ -57,6 +60,11 @@ a medicina.
 
 [Notebook com as queries](./notebooks/make_db.ipynb)
 
+[Notebook com queries para preparar a ILOSTAT](./notebooks/prepareILOSTAT.ipynb)
+
 [Notebook que processa em python os dados Unesco](./notebooks/unesco.ipynb)
 
 [Notebook que processa em python os dados Unesco e WHR](./notebooks/unesco_WHR_SQL.ipynb)
+
+[Notebook que processa em python os dados ILOSTASt](./notebooks/ILOSTA Notebook.ipynb)
+
