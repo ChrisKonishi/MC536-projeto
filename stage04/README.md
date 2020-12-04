@@ -99,7 +99,7 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 
 | nome do arquivo | link | breve descrição |
 | -- | -- | -- |
-| country_code.csv | [link](./data/raw/countries/country_code.csv) | nome, código e região dos países |
+| country_code.csv | [link](./data/raw/countries/country_atualizado.csv) | nome, código e região dos países |
 | poverty_age15plus.csv | [link](./data/raw/ilostat/ILOSTAT_CHRIS/poverty_age15plus.csv) | Índice de pobreza dos países |
 | unemployment_age15to64.csv | [link](./data/raw/ilostat/ILOSTAT_CHRIS/unemployment_age15to64.csv) | Índice de desemprego dos países |
 | unesco_socio_economics.xml | [link](./data/raw/unesco/unesco_socio_economics.xml) | XML com indicadores diversos dos países |
