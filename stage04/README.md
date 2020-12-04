@@ -73,9 +73,8 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 
 [Notebook que processa em python os dados Unesco](./notebooks/unesco.ipynb)
 
-[Notebook que processa em python os dados Unesco e WHR](./notebooks/unesco_WHR_SQL.ipynb)
+[Notebook que processa em SQL os dados Unesco e WHR](./notebooks/unesco_WHR_SQL.ipynb)
 
-[Notebook que processa em python os dados ILOSTAST](./notebooks/ILOSTAT_Notebook.ipynb)
 
 
 ## Conjunto de queries de dois modelos
