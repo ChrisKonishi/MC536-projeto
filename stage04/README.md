@@ -39,9 +39,49 @@ a medicina.
   
 <img src="./assets/images/indice.jpeg">
 
-  Sendo a correlação definida como:
+  Sendo corr(i,f) a correlação do índice i e a pontuação de felicidade da base de dados World Happiness Report, e vi, o valor o indicador i.
+
+  A correlação é definida como:
   
 <img src="./assets/images/correlacao.jpeg">
+
+
+## Modelo conceitual
+
+<img src="./assets/images/modelo_conceitual.png">
+
+## Modelo lógico
+
+### Relacional
+
+<img src="./assets/images/modelo_logico.png">
+
+### Grafos
+
+```
+(:country {codigo, nome, pontuacao_felicidade, indice_semelhanca*})-[:similar]-(:country)
+
+sendo similar se houver intersecção entre os valores de uma vizinhança dos indice_semelhanca's de ambos os países.
+
+*da função F definida acima
+```
+
+
+## Programa de extração e conversão de dados atualizado
+
+[Notebook com queries para preparar a ILOSTAT](./notebooks/prepareILOSTAT.ipynb)
+
+[Notebook que processa em python os dados Unesco](./notebooks/unesco.ipynb)
+
+[Notebook que processa em SQL os dados Unesco e WHR](./notebooks/unesco_WHR_SQL.ipynb)
+
+
+
+## Conjunto de queries de dois modelos
+
+[Notebook com as queries em SQL](./notebooks/make_db.ipynb)
+
+[Arquivo em markdown com queries do Cypher](./notebooks/cypher_playground.md)
 
 
 ## Bases de Dados
@@ -53,23 +93,25 @@ a medicina.
 | Countries with Regional Codes | [link](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv) | Lista de países, códigos e suas regiões |
 | Demographic and socio-economic | [link](http://data.uis.unesco.org/Index.aspx?DataSetCode=DEMO_DS#) | Dados socio econômicos dos países |
 
-## Modelo conceitual
+## Arquivos de Dados
 
-<img src="./assets/images/modelo_conceitual.png">
+### Arquivos não processados
 
-## Modelo lógico
+| nome do arquivo | link | breve descrição |
+| -- | -- | -- |
+| country_code.csv | [link](./data/raw/countries/country_code.csv) | nome, código e região dos países |
+| poverty_age15plus.csv | [link](./data/raw/ilostat/ILOSTAT_CHRIS/poverty_age15plus.csv) | Índice de pobreza dos países |
+| unemployment_age15to64.csv | [link](./data/raw/ilostat/ILOSTAT_CHRIS/unemployment_age15to64.csv) | Índice de desemprego dos países |
+| unesco_socio_economics.xml | [link](./data/raw/unesco/unesco_socio_economics.xml) | XML com indicadores diversos dos países |
+| \<ano\>.csv | [link](./data/raw/WHR) | Série de arquivos csv da World Happiness Report |
 
-<img src="./assets/images/modelo_logico.png">
+### Arquivos processados de acordo com modelo lógico
 
-## Notebooks
-
-[Notebook com as queries](./notebooks/make_db.ipynb)
-
-[Notebook com queries para preparar a ILOSTAT](./notebooks/prepareILOSTAT.ipynb)
-
-[Notebook que processa em python os dados Unesco](./notebooks/unesco.ipynb)
-
-[Notebook que processa em python os dados Unesco e WHR](./notebooks/unesco_WHR_SQL.ipynb)
-
-[Notebook que processa em python os dados ILOSTAST](./notebooks/ILOSTAT_Notebook.ipynb)
-
+| nome do arquivo | link | breve descrição |
+| -- | -- | -- |
+| countries.csv | [link](./data/processed/countries_processed/countries.csv) | tabela país do modelo lógico |
+| regions.csv | [link](./data/processed/countries_processed/regions.csv) | tabela de regiões do modelo lógico |
+| subregions.csv | [link](./data/processed/countries_processed/subregions.csv) | tabela de subregiões do modelo lógico |
+| ilostat_processed.csv | [link](./data/processed/ilostat/ilostat_processed.csv) | tabela da ILOSTAT do modelo lógico |
+| whr_processadp.csv | [link](./data/processed/whr/whr_processado.csv) | tabela da WHR do modelo lógico |
+| unesco_processed_data | [link](./data/processed/unesco/unesco_processed_data) | tabela da WHR do modelo lógico |
