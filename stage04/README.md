@@ -110,4 +110,8 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 
 | nome do arquivo | link | breve descrição |
 | -- | -- | -- |
-| countries.csv | [link](stage04\data\processed\countries_processed\countries.csv) | nome, código e região dos países |
+| countries.csv | [link](./data/processed/countries_processed/countries.csv) | tabela país do modelo lógico |
+| regions.csv | [link](./data/processed/countries_processed/regions.csv) | tabela de regiões do modelo lógico |
+| subregions.csv | [link](./data/processed/countries_processed/subregions.csv) | tabela de subregiões do modelo lógico |
+| ilostat_processed.csv | [link](./data/processed/ilostat/ilostat_processed.csv) | tabela da ILOSTAT do modelo lógico |
+| whr_processadp.csv | [link](./data/processed/whr/whr_processado.csv) | tabela da ILOSTAT do modelo lógico |
