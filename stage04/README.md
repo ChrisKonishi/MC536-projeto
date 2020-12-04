@@ -66,5 +66,5 @@ Sendo a correlação definida como:
 
 [Notebook que processa em python os dados Unesco e WHR](./notebooks/unesco_WHR_SQL.ipynb)
 
-[Notebook que processa em python os dados ILOSTASt](./notebooks/ILOSTA Notebook.ipynb)
+[Notebook que processa em python os dados ILOSTAST](./notebooks/ILOSTAT_Notebook.ipynb)
 
