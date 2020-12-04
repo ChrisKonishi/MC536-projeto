@@ -114,4 +114,5 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 | regions.csv | [link](./data/processed/countries_processed/regions.csv) | tabela de regiões do modelo lógico |
 | subregions.csv | [link](./data/processed/countries_processed/subregions.csv) | tabela de subregiões do modelo lógico |
 | ilostat_processed.csv | [link](./data/processed/ilostat/ilostat_processed.csv) | tabela da ILOSTAT do modelo lógico |
-| whr_processadp.csv | [link](./data/processed/whr/whr_processado.csv) | tabela da ILOSTAT do modelo lógico |
+| whr_processadp.csv | [link](./data/processed/whr/whr_processado.csv) | tabela da WHR do modelo lógico |
+| unesco_processed_data | [link](./data/processed/unesco/unesco_processed_data) | tabela da WHR do modelo lógico |
