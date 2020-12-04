@@ -47,11 +47,11 @@ a medicina.
 
 ## Modelo conceitual
 
-<img src="./images/modelo_conceitual.png">
+<img src="./assets/images/modelo_conceitual.png">
 
 ## Modelo lógico
 
-<img src="./images/modelo_logico.png">
+<img src="./assets/images/modelo_logico.png">
 
 ## Notebooks
 
