@@ -1,4 +1,4 @@
-# Etapa 3 - Primeiros Modelos e Análises
+# Etapa 04 - Análises com o Segundo Modelo Lógico
 
 
 ## Motivação e Contexto
