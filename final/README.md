@@ -1,4 +1,4 @@
-# Etapa 04 - Análises com o Segundo Modelo Lógico
+# Etapa Final
 
 ## Slides da Apresentação da Etapa
 [Slides](./slides/apresentacao.pdf)
