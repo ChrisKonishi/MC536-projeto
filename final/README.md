@@ -154,3 +154,11 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
   <li> Cada cor é uma comunidade. </li>
   <li> O tamanho do nó é proporcional ao seu índice de felicidade </li>  
 </ul>
+
+## Conclusão
+
+<ul>
+  <li> A partir do grafo de semelhança construído foi possível perceber que países na mesma comunidade de semelhança possuíam níveis próximos de felicidade.
+Desta forma, este valor que criamos pode sim ser usado como um possível indicador da felicidade de um país. No entanto não existe um conjunto de testes para comprovar esta hipótese. </li>
+  <li> Também é possível perceber com base no grafo de localização geográfica que estas comunidades não possuem relação alguma com a localização de um país, apenas, provavelmente, com seus fatores socioeconômicos, que foi o que utilizamos em nossa análise. Por exemplo, Brasil, Belarus, Malásia, Costa Rica, México e Panamá estão numa mesma comunidade </li>  
+  <li> Um fato importante a destacar é o índice de felicidade do World Happiness Report é um resultado subjetivo que não temos certeza exatamente como foi calculado, então muitos outros fatores baseados em outras evidências empíricas foram deixadas de fora de nossa análise que poderiam alterar alguns de nossos resultados, no entanto, isso não invalida os resultados interessantes que foram produzidos em nossa análise. </li>
