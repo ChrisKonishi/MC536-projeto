@@ -120,3 +120,37 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 
 ## Grafo de regiões, sub-regiões e países
 
+### Grafo de regiões, sub-regiões e países
+
+<img src="./assets/images/grafo-regioes.jpeg"/>
+
+<ul>
+  <li> Os países são as folhas </li>
+  <li> Verde: índice de felicidade ≥ 0,75 </li>  
+  <li> Vermelho: 0,75 > índice ≥ 0,5 </li>  
+  <li> Azul claro: 0,25 ≥ índice > 0,5 </li>  
+  <li> Bege: índice < 0,25 </li>  
+  <li> Laranja: sem dados </li>  
+</ul>
+
+
+### Grafo de semelhança visualizado no Cypher
+
+<img src="./assets/images/grafo-comunidade.jpeg"/>
+
+<ul>
+  <li> Verde: índice de felicidade ≥ 0,75 </li>  
+  <li> Vermelho: 0,75 > índice ≥ 0,5 </li>  
+  <li> Azul claro: 0,25 ≥ índice > 0,5 </li>  
+  <li> Bege: índice < 0,25 </li>  
+  <li> Número no vértice: fator de semelhança </li>  
+</ul>
+
+### Visualização de comunidades com o Gephi
+
+<img src="./assets/images/grafo-semelhanca.jpeg"/>
+
+<ul>
+  <li> Cada cor é uma comunidade. </li>
+  <li> O tamanho do nó é proporcional ao seu índice de felicidade </li>  
+</ul>
