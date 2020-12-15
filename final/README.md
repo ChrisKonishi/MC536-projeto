@@ -136,7 +136,7 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 
 ### Grafo de semelhança visualizado no Cypher
 
-<img src="./assets/images/grafo-comunidade.jpeg"/>
+<img src="./assets/images/grafo-semelhanca.jpeg"/>
 
 <ul>
   <li> Verde: índice de felicidade ≥ 0,75 </li>  
@@ -148,7 +148,7 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 
 ### Visualização de comunidades com o Gephi
 
-<img src="./assets/images/grafo-semelhanca.jpeg"/>
+<img src="./assets/images/grafo-comunidade.jpeg"/>
 
 <ul>
   <li> Cada cor é uma comunidade. </li>
