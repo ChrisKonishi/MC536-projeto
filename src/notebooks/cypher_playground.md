@@ -11,7 +11,7 @@ CREATE (:PAIS {CODE: line.ALPHA3});
 CREATE INDEX ON :PAIS(CODE);
 
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ChrisKonishi/MC536-projeto/chris/src/notebooks/database/happiness_norm.csv' AS LINE
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ChrisKonishi/MC536-projeto/develop/src/data/processed/cypher/happiness_norm.csv' AS LINE
 MATCH (N:PAIS {CODE: LINE.COUNTRYCODE})
 SET N.HAPPY = toFloat(LINE.HAPPINESSSCORE);
 
@@ -31,7 +31,7 @@ MATCH (N:PAIS)
 WHERE N.HAPPY<0.25
 SET N:NOTHAPPY;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ChrisKonishi/MC536-projeto/chris/src/notebooks/database/pais_indice.csv' AS LINE
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ChrisKonishi/MC536-projeto/develop/src/data/processed/cypher/pais_indice.csv' AS LINE
 MATCH (P:PAIS {CODE: LINE.LOCAL})
 SET P.INDICE = toFloat(LINE.INDICE);
 
