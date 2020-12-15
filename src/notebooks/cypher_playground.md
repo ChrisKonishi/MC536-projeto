@@ -1,3 +1,6 @@
+## Carregar e gerar o grafo
+
+~~~cypher
 MATCH ()-[E]-()
 DELETE E;
 MATCH(N)
@@ -40,11 +43,18 @@ CREATE (N)-[:SIMILAR]->(O);
 MATCH (N)
 WHERE NOT (N:PAIS)-[:SIMILAR]-(:PAIS)
 DELETE N;
+~~~
 
+## Visualizar grafo
+
+~~~cypher
 MATCH (N:PAIS)-[E:SIMILAR]->(P:PAIS)
 RETURN N,E,P;
+~~~
 
+## Encontrar comunidades
 
+~~~cypher
 CALL gds.graph.create(
   'countryhappy',
   'PAIS',
@@ -54,13 +64,20 @@ CALL gds.graph.create(
     }
   }
 );
+~~~
 
+## Vértices
 
+~~~cypher
 CALL gds.louvain.stream('countryhappy6')
 YIELD nodeId, communityId
 RETURN gds.util.asNode(nodeId).CODE AS id, communityId AS modularity_class, gds.util.asNode(nodeId).HAPPY as happy
 ORDER BY communityId ASC;
+~~~
 
+## Arestas
 
+~~~cypher
 match (n:PAIS)-[e:SIMILAR]->(o:PAIS)
 return n.CODE as source, o.CODE as target;
+~~~
