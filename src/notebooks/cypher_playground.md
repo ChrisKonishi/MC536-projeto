@@ -69,7 +69,7 @@ CALL gds.graph.create(
 ## Vértices
 
 ~~~cypher
-CALL gds.louvain.stream('countryhappy6')
+CALL gds.louvain.stream('countryhappy')
 YIELD nodeId, communityId
 RETURN gds.util.asNode(nodeId).CODE AS id, communityId AS modularity_class, gds.util.asNode(nodeId).HAPPY as happy
 ORDER BY communityId ASC;
