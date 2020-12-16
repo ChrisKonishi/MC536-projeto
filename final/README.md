@@ -1,7 +1,7 @@
 # Etapa Final
 
 ## Slides da Apresentação da Etapa
-[Slides](./slides/apresentacao.pdf)
+[Slides](./slides/apresentacao_final.pdf)
 
 ## Motivação e Contexto
 - Depois da própria COVID-19, saúde mental está sendo um tópico bem quente para
@@ -34,6 +34,8 @@ a medicina.
 - Para isso, será definida uma função F(I), sendo I os indicadores do país.
 
 - Dois países serão similares se tiverem F(I) próximos.
+
+- A função F irá definir o "fator de semelhança" de cada país.
 
 - Tendo os países similares, é possível contruir e visualizar um grafo dos países, coloridos de acordo com sua felicidade. 
 
@@ -85,6 +87,10 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 
 [Arquivo em markdown com queries do Cypher](./notebooks/cypher_playground.md)
 
+## Visualização
+
+[Projeto Gephi para visualizar comunidades](./src)
+
 
 ## Bases de Dados
 
@@ -117,10 +123,14 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
 | ilostat_processed.csv | [link](./data/processed/ilostat/ilostat_processed.csv) | tabela da ILOSTAT do modelo lógico |
 | whr_processadp.csv | [link](./data/processed/whr/whr_processado.csv) | tabela da WHR do modelo lógico |
 | unesco_processed_data | [link](./data/processed/unesco/unesco_processed_data) | tabela da WHR do modelo lógico |
+| arquivos para o Cypher | [link](./data/processed/cypher) | arquivos csv para serem carregados no Cypher |
+| arquivos para o Gephi | [link](./data/processed/gephi) | arquivos csv para serem carregados no Gephi |
 
 ## Grafo de regiões, sub-regiões e países
 
 ### Grafo de regiões, sub-regiões e países
+
+Aqui os países foram ligados às sub-regiões que pertencem, e as subregiões foram ligadas às regiões. Além disso, os países (folhas) foram coloridos de acordo com seu índice de felicidade.
 
 <img src="./assets/images/grafo-regioes.jpeg"/>
 
@@ -133,6 +143,7 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
   <li> Laranja: sem dados </li>  
 </ul>
 
+Através da visualização do grafo, não foi possível notar um padrão claro na distribuição dos países mais felizes, portanto, essa linha de reciocínio foi abandonada, em favor da análise através do fator de semelhança descrito acima.
 
 ### Grafo de semelhança visualizado no Cypher
 
@@ -146,6 +157,8 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
   <li> Número no vértice: fator de semelhança </li>  
 </ul>
 
+Esse grafo é interessante pois os países de mesma cor (índice de felicidade próximos) parecem estar formando grupos, para investigar melhor isso, o Algoritmo de Louvain foi utilizado para encontrar comunidades, gerando a próxima visualização. 
+
 ### Visualização de comunidades com o Gephi
 
 <img src="./assets/images/grafo-comunidade.jpeg"/>
@@ -155,10 +168,14 @@ sendo similar se houver intersecção entre os valores de uma vizinhança dos in
   <li> O tamanho do nó é proporcional ao seu índice de felicidade </li>  
 </ul>
 
+Apesar de não ser absoluto, é possível perceber que países de uma mesma comunidade (cor) têm índices de felicidade
+
 ## Conclusão
 
 <ul>
-  <li> A partir do grafo de semelhança construído foi possível perceber que países na mesma comunidade de semelhança possuíam níveis próximos de felicidade.
-Desta forma, este valor que criamos pode sim ser usado como um possível indicador da felicidade de um país. No entanto não existe um conjunto de testes para comprovar esta hipótese. </li>
+  <li> A partir do grafo de semelhança construído foi possível perceber que países na mesma comunidade de semelhança possuíam níveis próximos de felicidade. </li>
+  <li>Desta forma, este valor que criamos poderia ser usado como um possível indicador indireto da felicidade de um país. No entanto não existe um conjunto de testes para comprovar esta hipótese. </li>
+  <li> Todos os países com dados conhecidos foram utilizados para gerar o modelo (fator de semelhança), porém não existe um conjunto separado de dados para avaliar o seu desempenho de maneira apropriada. </li>
   <li> Também é possível perceber com base no grafo de localização geográfica que estas comunidades não possuem relação alguma com a localização de um país, apenas, provavelmente, com seus fatores socioeconômicos, que foi o que utilizamos em nossa análise. Por exemplo, Brasil, Belarus, Malásia, Costa Rica, México e Panamá estão numa mesma comunidade </li>  
-  <li> Um fato importante a destacar é o índice de felicidade do World Happiness Report é um resultado subjetivo que não temos certeza exatamente como foi calculado, então muitos outros fatores baseados em outras evidências empíricas foram deixadas de fora de nossa análise que poderiam alterar alguns de nossos resultados, no entanto, isso não invalida os resultados interessantes que foram produzidos em nossa análise. </li>
+  <li> Um fato importante a se destacar é que o índice de felicidade do World Happiness Report é um resultado subjetivo que depende basicamente da percepção de uma amostra da população de um país sobre sua própria felicidade, então muitos outros fatores baseados em outras evidências empíricas foram deixadas de fora de nossa análise que poderiam alterar alguns de nossos resultados, no entanto, isso não invalida os resultados interessantes que foram produzidos em nossa análise. </li>
+</ul>
