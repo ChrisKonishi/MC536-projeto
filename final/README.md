@@ -147,6 +147,8 @@ Através da visualização do grafo, não foi possível notar um padrão claro n
 
 ### Grafo de semelhança visualizado no Cypher
 
+Para esta análise, dois países foram considerados semelhantes se os seus fatores de semelhança estivem distantes em no máximo 0,01.
+
 <img src="./assets/images/grafo-semelhanca.jpeg"/>
 
 <ul>
