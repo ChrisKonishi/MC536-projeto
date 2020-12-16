@@ -168,7 +168,7 @@ Esse grafo é interessante pois os países de mesma cor (índice de felicidade p
   <li> O tamanho do nó é proporcional ao seu índice de felicidade </li>  
 </ul>
 
-Apesar de não ser absoluto, é possível perceber que países de uma mesma comunidade (cor) têm índices de felicidade
+Apesar de não ser absoluto, é possível perceber que países de uma mesma comunidade (cor) têm índices de felicidade parecidos (tamanho do nó), existem algumas exceções, mas o comportamento geral parece coerente.
 
 ## Conclusão
 
