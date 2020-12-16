@@ -24,4 +24,4 @@ Saúde mental, um tema tão importante. Ela é extremamente importante na vida d
 
 # Resultados finais
 
-[Link para etapa final](https://github.com/ChrisKonishi/MC536-projeto/blob/develop/final)
+[Link para etapa final](https://github.com/ChrisKonishi/MC536-projeto/blob/develop/stage05)
