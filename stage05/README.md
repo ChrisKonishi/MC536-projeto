@@ -1,13 +1,19 @@
 # Etapa Final
 
+## Projeto Felicidade: fatores socioeconômicos
+
+## Equipe PsycHealth
+- Christian Massao Konishi, 214570
+- Gabriel de Freitas Garcia, 216179
+- Andrey Torres de Lima, 231442
+
 ## Slides da Apresentação da Etapa
 [Slides](./slides/apresentacao_final.pdf)
 
 ## Motivação e Contexto
-- Depois da própria COVID-19, saúde mental está sendo um tópico bem quente para
-a medicina.
+Depois da própria COVID-19, saúde mental foi um tópico de muita discussão na área médica. Porém, o entendimento popular da área é muito deficiente, assim como o conhecimento prévio dos autores, o que tornou o tema muito interessante. Em resumo, algumas perguntas e desejos foram levantados, espera-se que esse projeto possa trazer respostas a estes pontos: 
 
-- Queremos entender melhor o cenário global da área
+- Queremos entender melhor o cenário global da área.
 
 - Que fatores estão correlacionados com a saúde mental?
 
@@ -17,37 +23,79 @@ a medicina.
 
 - O que podemos aprender com esses lugares?
 
-## Análise 1
-- Que fatores estão associados com a felicidade de um povo?
+## Detalhamento do Projeto
+Após discussões e algumas abordagens falhas, o projeto final consistiu em uma análise principal, dada por uma visualização de um grafo, cuja construção dependeu de análises intermediárias no modelo relacional, a respeito da correlação de condições socioeconômicas com o índice de felicidade de uma país.
 
-- Iremos verificar que indicadores estão associados a índices de fecilicide mais elevados.
+A primeira análise consistiu em calcular a correlação de Pearson para cada indicador obtido nas três bases de dados (descritas em "Bases de Dados") com o índice de felididade da World Happiness Report. O índice de felicidade é construído pela média das respostas de uma amostra da população, a respeito da percepção individual sobre  a própria vida. Simplificando bastante o processo, o entrevistado deve dar uma nota a própria vida (0-10), sendo 10 a melhor vida imaginável, e 0, a pior.
 
-- Para isso podemos comparar a proporção de países felizes com a proporção de países felizes com determinada característa.
+Note que o índice é calculado sem dependência prévia de outros indicadores, portanto, o cálculo da correlação com a felicidade pode ser feito sem se preocupar com a possibilidade de comparar dados que foram utilizados na construção do próprio índice.
 
-- Fazer o cálculo de correlação entre os indicadores pode ser interessante.
+A correlação é um valor adimensional que vaira de -1 a 1, ela pode medir o quão linearmente rerlacionadas dois conjuntos de dados estão, sendo a correlação direta para valores perto de 1, e inversa para valores próximos de -1. 0 indica ausência de correlação.
 
-- Entre os indicadores temos indicadores socioeconômicos, relacionados a trabalho e felicidade de um país.
+A correlação pode ser definida da seguinte forma: 
 
-## Análise 2
-- Tendo indicadores associados a maiores índices de felicidade, iremos tentar agrupar os países similares.
+<img src="./assets/images/correlacao.jpeg">
 
-- Para isso, será definida uma função F(I), sendo I os indicadores do país.
+Sendo E(X) o valor esperado de X e sigmaX o desvio padrão de X.
 
-- Dois países serão similares se tiverem F(I) próximos.
+Em seguida, a correlação desses indicadores é utilizada para definir uma valor para cada país, grandeza a qual será essencial para comparar os povos analisados. Esse número será referido como fator de semelhança, definido por uma função F(I), na qual I são os indicadores do país.
 
-- A função F irá definir o "fator de semelhança" de cada país.
+Dois países serão similares se e somente se os seus fatores de semelhança forem suficientemente próximos.
 
-- Tendo os países similares, é possível contruir e visualizar um grafo dos países, coloridos de acordo com sua felicidade. 
-
-  F(I) é definida como:
+F(I) é definida como:
   
 <img src="./assets/images/indice.jpeg">
 
-  Sendo corr(i,f) a correlação do índice i e a pontuação de felicidade da base de dados World Happiness Report, e vi, o valor o indicador i.
+Sendo corr(i,f) a correlação do índice i e a pontuação de felicidade da base de dados World Happiness Report, e vi, o valor o indicador i (normalizado entre 0 e 1).
 
-  A correlação é definida como:
-  
-<img src="./assets/images/correlacao.jpeg">
+Esses cálculos foram realizados utilzando SQL, as queries completas podem ser consultadas no final notebook [deste notebook](./notebooks/make_db.ipynb). 
+
+O trecho que calcula a correlação de Pearson possui esta estrutura (o ano de 2016 foi utilizado por ser o mais completo em dados):
+
+~~~SQL
+CREATE VIEW H_GDPPERCAPITA2016 AS
+SELECT
+    (AVG(W.HAPPINESSSCORE*W.GDPCAPITA) - (AVG(W.HAPPINESSSCORE)*AVG(W.GDPCAPITA)))/
+    (STDDEV_POP(W.HAPPINESSSCORE) * STDDEV_POP(W.GDPCAPITA)) correlationGDPCapita
+FROM WHR W
+WHERE W.ANO=2016
+;
+~~~
+
+Já o fator de semelhança é calculado neste trecho:
+
+~~~SQL
+select T.Local, ((
+                    C.correlationGDPCapita*T.GDPCAPITA/(SELECT MAX(T.GDPCAPITA) from tabelaUnica T)
+                  + C.correlationCorruption*T.GOVCORRUPTION/(SELECT MAX(T.GOVCORRUPTION) from tabelaUnica T)
+                  + C.correlationFreedom*T.FREEDOM/(SELECT MAX(T.FREEDOM) from tabelaUnica T)
+                  + C.correlationGenerosity*T.GENEROSITY/(SELECT MAX(T.GENEROSITY) from tabelaUnica T)
+                  + C.correlationRuralPop*T.SP_RUR_TOTL_ZS/(SELECT MAX(T.SP_RUR_TOTL_ZS) from tabelaUnica T)
+                  + C.correlationInfancyMort*T.SP_DYN_IMRT_IN/(SELECT MAX(T.SP_DYN_IMRT_IN) from tabelaUnica T)
+                  + C.correlationBornLifeExpec*T.SP_DYN_LE00_IN/(SELECT MAX(T.SP_DYN_LE00_IN) from tabelaUnica T)
+                  + C.correlationCurrentCurrency*T.NY_GDP_MKTP_CD/(SELECT MAX(T.NY_GDP_MKTP_CD) from tabelaUnica T)
+                  + C.correlationDolarGrowth*T.NY_GDP_MKTP_KD_ZG/(SELECT MAX(T.NY_GDP_MKTP_KD_ZG) from tabelaUnica T)
+                  + C.correlationUnemployment*T.DESEMPREGO/(SELECT MAX(T.DESEMPREGO) from tabelaUnica T)
+                  + C.correlationPoverty*T.POBREZA/(SELECT MAX(T.POBREZA) from tabelaUnica T)
+                ) /
+                 (ABS(C.correlationGDPCapita) + ABS(C.correlationCorruption) 
+                    + ABS(C.correlationFreedom) + ABS(C.correlationGenerosity) 
+                    + ABS(C.correlationLifeExpectancy) + ABS(C.correlationRuralPop) 
+                    + ABS(C.correlationInfancyMort) + ABS(C.correlationBornLifeExpec) 
+                    + ABS(C.correlationCurrentCurrency) + ABS(C.correlationDolarGrowth) 
+                    + ABS(C.correlationUnemployment) + ABS(C.correlationPoverty)
+                 )) AS indice
+from tabelaUnica T, Correlation C
+where T.ANO = 2016;
+~~~
+
+Para a próxima etapa da análise, o fator de semelhança e o índice de felicidade de cada país foram utilizados para construir um grafo que liga os países similares. Dois países são similares se os seus fatores de semelhança forem próximos, isto é, se |Fi - Fj| < t, sendo t uma valor de limiar.
+
+Após a contrução do grafo (que pode ser vista [neste arquivo](./notebooks/cypher_playground.md)), o Algoritmo de Louvain foi utilizado para encontrar comunidades. Como o grafo lida com países similares, as comunidades podem ser interpretadas por um conjunto de países com características similares entre si.
+
+Por fim, para analisar os resultados, o software Gephi foi utilizado para visualizar o grafo, no qual cada nó é um país e possui um tamanho proporcional ao seu índice de felicidade, cada aresta representa a similaridade entre dois países, e cada cor é uma comunidade diferente.
+
+A hipótese do projeto é que países em uma mesma comunidade possuem índices de felicidade próximos, a análise deste grafo irá confirmar ou não esta afirmação.
 
 
 ## Modelo conceitual
