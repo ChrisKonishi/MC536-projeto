@@ -10,6 +10,8 @@
 ## Slides da Apresentação da Etapa
 [Slides](./slides/apresentacao_final.pdf)
 
+## Resumo do Projeto
+
 ## Motivação e Contexto
 Depois da própria COVID-19, saúde mental foi um tópico de muita discussão na área médica. Porém, o entendimento popular da área é muito deficiente, assim como o conhecimento prévio dos autores, o que tornou o tema muito interessante. Em resumo, algumas perguntas e desejos foram levantados, espera-se que esse projeto possa trazer respostas a estes pontos: 
 
@@ -97,12 +99,80 @@ Por fim, para analisar os resultados, o software Gephi foi utilizado para visual
 
 A hipótese do projeto é que países em uma mesma comunidade possuem índices de felicidade próximos, a análise deste grafo irá confirmar ou não esta afirmação.
 
+## Evolução do Projeto
 
-## Modelo conceitual
+## Resultados e Discussão
+
+### Modelo relacional
+
+A correlação entre os indicadores estudados e o índice de felicidade foram compilados em uma tabela:
+
+| Indicador | Correlação com a pontuação de felicidade |
+|---|---|
+| PIB per capita | 0,7954 |
+| Percepção de corrupção | 0,4164 |
+| Liberdade para fazer escolhas de vida | 0,5849 |
+| Generosidade | 0,1679 |
+| Expectativa de vida | 0,7702 |
+| População rural (%) | -0,7241 |
+| Mortalidade infantil | -0,6751 |
+| Crescimento do PIB | -0,1402 |
+| Taxa de desemprego | -0,2856 |
+| População abaixo da linha de pobreza (%) | -0,4500 |
+| PIB atual | 0,2048 |
+
+Dentro os indicadores analisados, alguns possuem correlação elevada (direta ou indireta) como o PIB per capita e a população rural, e outros não, como o crescimento do PIB. Descartar indicadores com correlação baixa é uma possibilidade interessante, mas adiciona um novo parâmetro para definir o que seria uma correlação baixa. A solução de utilizar a correlação para ponderar uma soma parece ser mais elegante, pois baixas correlações naturalmente terão baixo impacto no fator.
+
+Já o fator de semelhança de cada país é apresentado por completo em uma tabela nos [slides](./slides/apresentacao_final.pdf) do projeto. Como ela é muito extensa, apenas uma parte dela será demonstrada:
+
+| Local | Índice |
+|---|---|
+| URY | 0.29759 |
+| CHL | 0.26348 |
+| BRA | 0.25134 |
+| CRI | 0.24919 |
+| MYS | 0.24735 |
+| ... | ... |
+| LBR | -0.04998 |
+| MLI | -0.06668 |
+
+Em teoria, estes valores poderiam variar entre 1 e -1, mas as grandezas obtidas não chegam nem perto disso, não passando de 0,3 e tendo os menores valores próximos de 0. Este fato deverá ser levado em consideração na hora de definir o limiar t que define os países ditos similares.
+
+### Modelo de grafos
+
+Para esta análise, dois países foram considerados semelhantes se os seus fatores de semelhança estivem distantes em no máximo 0,01. O valor foi obtido empiricamente, tendo em vista a tabela de com os fatores de semelhança.
+
+<img src="./assets/images/grafo-semelhanca.jpeg"/>
+
+<ul>
+  <li> Verde: índice de felicidade ≥ 0,75 </li>  
+  <li> Vermelho: 0,75 > índice ≥ 0,5 </li>  
+  <li> Azul claro: 0,25 ≥ índice > 0,5 </li>  
+  <li> Bege: índice < 0,25 </li>  
+  <li> Número no vértice: fator de semelhança </li>  
+</ul>
+
+A forma como o grafo foi colorida foi escolhida pelo neo4j (ferramenta utilizada para lidar com os grafos), as cores não foram as mais apropriadas, mas não foi encontrada uma forma de controlar essas cores.
+
+Esse grafo é interessante pois os países de mesma cor (índice de felicidade próximos) parecem estar formando grupos, para investigar melhor isso, o Algoritmo de Louvain foi utilizado para encontrar comunidades, gerando a próxima visualização. 
+
+<img src="./assets/images/grafo-comunidade.jpeg"/>
+
+<ul>
+  <li> Cada cor é uma comunidade. </li>
+  <li> O tamanho do nó é proporcional ao seu índice de felicidade </li>  
+</ul>
+
+Apesar de haver exceções, é possível perceber que países de uma mesma comunidade (cor) têm índices de felicidade parecidos (tamanho do nó), existem algumas exceções, mas o comportamento geral parece coerente.
+
+
+## Conclusões
+ 
+## Modelo conceitual final
 
 <img src="./assets/images/modelo_conceitual.png">
 
-## Modelo lógico
+## Modelos lógicos finais
 
 ### Relacional
 
