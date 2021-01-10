@@ -28,11 +28,11 @@ Depois da própria COVID-19, saúde mental foi um tópico de muita discussão na
 ## Detalhamento do Projeto
 Após discussões e algumas abordagens falhas, o projeto final consistiu em uma análise principal, dada por uma visualização de um grafo, cuja construção dependeu de análises intermediárias no modelo relacional, a respeito da correlação de condições socioeconômicas com o índice de felicidade de uma país.
 
-A primeira análise consistiu em calcular a correlação de Pearson para cada indicador obtido nas três bases de dados (descritas em "Bases de Dados") com o índice de felididade da World Happiness Report. O índice de felicidade é construído pela média das respostas de uma amostra da população, a respeito da percepção individual sobre  a própria vida. Simplificando bastante o processo, o entrevistado deve dar uma nota a própria vida (0-10), sendo 10 a melhor vida imaginável, e 0, a pior.
+A primeira análise consistiu em calcular a correlação de Pearson para cada indicador obtido nas três bases de dados (descritas em "Bases de Dados") com o índice de felicidade da World Happiness Report. O índice de felicidade é construído pela média das respostas de uma amostra da população, a respeito da percepção individual sobre  a própria vida. Simplificando bastante o processo, o entrevistado deve dar uma nota a própria vida (0-10), sendo 10 a melhor vida imaginável, e 0, a pior.
 
 Note que o índice é calculado sem dependência prévia de outros indicadores, portanto, o cálculo da correlação com a felicidade pode ser feito sem se preocupar com a possibilidade de comparar dados que foram utilizados na construção do próprio índice.
 
-A correlação é um valor adimensional que vaira de -1 a 1, ela pode medir o quão linearmente rerlacionadas dois conjuntos de dados estão, sendo a correlação direta para valores perto de 1, e inversa para valores próximos de -1. 0 indica ausência de correlação.
+A correlação é um valor adimensional que varia de -1 a 1, ela pode medir o quão linearmente rerlacionadas dois conjuntos de dados estão, sendo a correlação direta para valores perto de 1, e inversa para valores próximos de -1. 0 indica ausência de correlação.
 
 A correlação pode ser definida da seguinte forma: 
 
@@ -93,7 +93,7 @@ where T.ANO = 2016;
 
 Para a próxima etapa da análise, o fator de semelhança e o índice de felicidade de cada país foram utilizados para construir um grafo que liga os países similares. Dois países são similares se os seus fatores de semelhança forem próximos, isto é, se |Fi - Fj| < t, sendo t uma valor de limiar.
 
-Após a contrução do grafo (que pode ser vista [neste arquivo](./notebooks/cypher_playground.md)), o Algoritmo de Louvain foi utilizado para encontrar comunidades. Como o grafo lida com países similares, as comunidades podem ser interpretadas por um conjunto de países com características similares entre si.
+Após a construção do grafo (que pode ser vista [neste arquivo](./notebooks/cypher_playground.md)), o Algoritmo de Louvain foi utilizado para encontrar comunidades. Como o grafo lida com países similares, as comunidades podem ser interpretadas por um conjunto de países com características similares entre si.
 
 Por fim, para analisar os resultados, o software Gephi foi utilizado para visualizar o grafo, no qual cada nó é um país e possui um tamanho proporcional ao seu índice de felicidade, cada aresta representa a similaridade entre dois países, e cada cor é uma comunidade diferente.
 
@@ -101,15 +101,15 @@ A hipótese do projeto é que países em uma mesma comunidade possuem índices d
 
 ## Evolução do Projeto
 
-O processo para chegar nas análises aapresentas foi conturbado. Em um primeiro momento, o grupo levantou diversas bases de dados que poderiam ser relevantes para o tema de saúde mental, como resultado disso, não foi possível levantar análises interessantes. Ao reduzir o escopo do trabalho e as bases de dados de interesse, a ideia de tentar medir a similaridade dos países sob a luz do índice de felicidade ocorreu naturalmente com discussões dentro o grupo e com o professor.
+O processo para chegar nas análises apresentadas foi conturbado. Em um primeiro momento, o grupo levantou diversas bases de dados que poderiam ser relevantes para o tema de saúde mental, como resultado disso, não foi possível levantar análises interessantes. Ao reduzir o escopo do trabalho e as bases de dados de interesse, a ideia de tentar medir a similaridade dos países sob a luz do índice de felicidade ocorreu naturalmente com discussões dentro o grupo e com o professor.
 
 O processamento das bases de dados foi certamente a parte mais trabalhosa do projeto. Dentro as três bases de dados (ver "Bases de Dados" para mais detalhes), A ILOSTAT é dividida em diversas tabelas que precisam ser integradas de acordo com os indicadores de interesse. A base da Unesco é disponibilizada em um arquivo XML pesado, de difícil visualização, portanto os dados foram convertidos para CSV ([notebook](./notebooks/unesco.ipynb)).
 
-Outro porblema enfrentado foi a dificuldade de integrar as bases de dados, mais especificamente, a a World Happiness Report identifica os paíes por nomes sem o código, o que dificulta muito a comparação. Por exemplo, a Rússia foi referida em uma base como Russia, e na WHR como Russian Federatioin. O processo para corrigir isso foi feito em um notebook, mas com muito trabalho manual ([notebook](./notebooks/WHR.ipynb))
+Outro problema enfrentado foi a dificuldade de integrar as bases de dados, mais especificamente, a World Happiness Report identifica os paíes por nomes sem o código, o que dificulta muito a comparação. Por exemplo, a Rússia foi referida em uma base como Russia, e na WHR como Russian Federatioin. O processo para corrigir isso foi feito em um notebook, mas com muito trabalho manual ([notebook](./notebooks/WHR.ipynb))
 
 Além das análises descritas acima, outras duas análises foram abandonadas.
 
-A primeira buscava identificar a porcentagem de países que possuiam um indicador X acima da média, dentre os países com o índice de felicidade acima da média. Se a proporção for maior do que 50% haveria uma correlação direto, se for abaixo, inversa. Essa análise foi abandonada, visto que calcular a correlação de Pearson é uma abordagem mais útil para o projeto e que substitui por completo essa análise. Query utilizada.
+A primeira buscava identificar a porcentagem de países que possuíam um indicador X acima da média, dentre os países com o índice de felicidade acima da média. Se a proporção for maior do que 50% haveria uma correlação direto, se for abaixo, inversa. Essa análise foi abandonada, visto que calcular a correlação de Pearson é uma abordagem mais útil para o projeto e que substitui por completo essa análise. Query utilizada.
 
 ~~~SQL
 CREATE VIEW HAPPYVIDA AS
@@ -136,7 +136,7 @@ SELECT COUNT(H.COUNTRYCODE)
     WHERE H.COUNTRYCODE = E.COUNTRYCODE;
 ~~~
 
-Outra análise abandonada foi a construção de um grafo com a distribuição geográfica dos países, ele seria uma árvores contendo países, subregiões e regiões, coloridas de acordo com o índice de felicidade. A análise não prosseguiu, pois o grafo não permitiu análises mais aprofundadas, por não ser homogêneo, além disso, o critério geográfico apresnetava alguns padrões interessantes, mas não permitia uma conexão com as outras análises do projeto. De qualquer forma, o grafo pode ser visto abaixo. As cores utilizadas nos países foram escolhidas pelo próprio neo4j.
+Outra análise abandonada foi a construção de um grafo com a distribuição geográfica dos países, ele seria uma árvores contendo países, subregiões e regiões, coloridas de acordo com o índice de felicidade. A análise não prosseguiu, pois o grafo não permitiu análises mais aprofundadas, por não ser homogêneo, além disso, o critério geográfico apresentava alguns padrões interessantes, mas não permitia uma conexão com as outras análises do projeto. De qualquer forma, o grafo pode ser visto abaixo. As cores utilizadas nos países foram escolhidas pelo próprio neo4j.
 
 <img src="./assets/images/grafo-regioes.jpeg"/>
 
@@ -215,20 +215,20 @@ Na visualização acima, o Gephi foi utilizado para gerar um grafo cujas cores i
 
 É possível perceber que países de uma mesma comunidade (cor) têm índices de felicidade parecidos (tamanho do nó), existem algumas exceções, mas o comportamento geral parece coerente.
 
-Uma possibilidade interessante a se analisar é a possibilidade de usar o fator de semelhança como um preditor, isto é, dado um país com índice de felicidade desconhecido, tentar utilizar outros indicadores para inferir o quão feliz a populaçõa se sente. Para isso, mais dados seriam necessários, para ter a possibilidade de criar um conjunto de testes. Também seria necessário definir uma métrica para avaliar o preditor.
+Uma possibilidade interessante a se analisar é a possibilidade de usar o fator de semelhança como um preditor, isto é, dado um país com índice de felicidade desconhecido, tentar utilizar outros indicadores para inferir o quão feliz a população se sente. Para isso, mais dados seriam necessários, para ter a possibilidade de criar um conjunto de testes. Também seria necessário definir uma métrica para avaliar o preditor.
 
 Deixando essa digressão de lado, o grafo reforçou a hipótese inicial e validou os indicadores com maior correlação com o índice de felicidade como valores interessantes a serem analisados, ao tentar estudar a felicidade da população.
 
 
 ## Conclusões
 
-A partir do grafo de semelhança construído foi possível perceber que países na mesma comunidade de semelhança possuíam níveis próximos de felicidade. O fator de semelhança aparenta, portanto, ser uma medida promissora para analisar a felicidade de um paí. No entanto não existe um conjunto de testes para comprovar esta hipótese, já que todos os países com dados conhecidos foram utilizados para gerar o modelo (fator de semelhança), não existindo um conjunto separado de dados para avaliar o seu desempenho de maneira apropriada.
+A partir do grafo de semelhança construído foi possível perceber que países na mesma comunidade de semelhança possuíam níveis próximos de felicidade. O fator de semelhança aparenta, portanto, ser uma medida promissora para analisar a felicidade de um país. No entanto não existe um conjunto de testes para comprovar esta hipótese, já que todos os países com dados conhecidos foram utilizados para gerar o modelo (fator de semelhança), não existindo um conjunto separado de dados para avaliar o seu desempenho de maneira apropriada.
 
 Também é possível perceber com base no grafo de localização geográfica que estas comunidades não possuem relação forte com a localização de um país, apenas, provavelmente, com seus fatores socioeconômicos, justamente o que foi utilizados nas análises. Por exemplo, Brasil, Belarus, Malásia, Costa Rica, México e Panamá estão numa mesma comunidade.
 
 Um fato importante a se destacar é que o índice de felicidade do World Happiness Report é um resultado subjetivo que depende basicamente da percepção de uma amostra da população de um país sobre sua própria felicidade, então muitos outros fatores baseados em outras evidências empíricas foram deixadas de fora da análise que poderiam alterar alguns dos resultados, no entanto, isso não invalida os resultados interessantes que foram produzidos.
 
-As dificuldades do projeto também demonstraram a necessidade de padronizar a os dados, sobretudo as chaves do modelo relacional, visto que muitos problemas foram provenientes dessas inconsistências. Outro apredizado muito claro é a necessidade de definir bem o escopo de uma análise, pois isso permite análises mais focadas e facilita a integração dos dados.
+As dificuldades do projeto também demonstraram a necessidade de padronizar os dados, sobretudo as chaves do modelo relacional, visto que muitos problemas foram provenientes dessas inconsistências. Outro apredizado muito claro é a necessidade de definir bem o escopo de uma análise, pois isso permite análises mais focadas e facilita a integração dos dados.
 
 ## Modelo conceitual final
 
