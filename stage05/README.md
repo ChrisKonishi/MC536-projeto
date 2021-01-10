@@ -11,6 +11,7 @@
 [Slides](./slides/apresentacao_final.pdf)
 
 ## Resumo do Projeto
+O projeto visa utilizar os dados socioeconômicos de diversas nações e o índice de felicidade do World Happiness Report para analisar como fatores socioecômicos se relacionam à felicidade das pessoas e que características fazem uma nação ser semelhante a outra quanto às suas felicidades. Para fazer essas observações foram usadas e trabalhadas as bases de dados da Unesco, ILOSTAT e a já citada WHR, trabalhadas usando SQL e Python para permitir as análises desejadas e criar visualizações que permitam os objetivos do projeto.
 
 ## Motivação e Contexto
 Depois da própria COVID-19, saúde mental foi um tópico de muita discussão na área médica. Porém, o entendimento popular da área é muito deficiente, assim como o conhecimento prévio dos autores, o que tornou o tema muito interessante. Em resumo, algumas perguntas e desejos foram levantados, espera-se que esse projeto possa trazer respostas a estes pontos: 
@@ -228,7 +229,7 @@ Também é possível perceber com base no grafo de localização geográfica que
 
 Um fato importante a se destacar é que o índice de felicidade do World Happiness Report é um resultado subjetivo que depende basicamente da percepção de uma amostra da população de um país sobre sua própria felicidade, então muitos outros fatores baseados em outras evidências empíricas foram deixadas de fora da análise que poderiam alterar alguns dos resultados, no entanto, isso não invalida os resultados interessantes que foram produzidos.
 
-As dificuldades do projeto também demonstraram a necessidade de padronizar os dados, sobretudo as chaves do modelo relacional, visto que muitos problemas foram provenientes dessas inconsistências. Outro apredizado muito claro é a necessidade de definir bem o escopo de uma análise, pois isso permite análises mais focadas e facilita a integração dos dados.
+As dificuldades do projeto também demonstraram a necessidade de padronizar os dados, sobretudo as chaves do modelo relacional, visto que muitos problemas foram provenientes dessas inconsistências. Outro aprendizado muito claro é a necessidade de definir bem o escopo de uma análise, pois isso permite análises mais focadas e facilita a integração dos dados.
 
 ## Modelo conceitual final
 
