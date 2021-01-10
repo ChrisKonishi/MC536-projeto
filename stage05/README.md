@@ -101,6 +101,54 @@ A hipótese do projeto é que países em uma mesma comunidade possuem índices d
 
 ## Evolução do Projeto
 
+O processo para chegar nas análises aapresentas foi conturbado. Em um primeiro momento, o grupo levantou diversas bases de dados que poderiam ser relevantes para o tema de saúde mental, como resultado disso, não foi possível levantar análises interessantes. Ao reduzir o escopo do trabalho e as bases de dados de interesse, a ideia de tentar medir a similaridade dos países sob a luz do índice de felicidade ocorreu naturalmente com discussões dentro o grupo e com o professor.
+
+O processamento das bases de dados foi certamente a parte mais trabalhosa do projeto. Dentro as três bases de dados (ver "Bases de Dados" para mais detalhes), A ILOSTAT é dividida em diversas tabelas que precisam ser integradas de acordo com os indicadores de interesse. A base da Unesco é disponibilizada em um arquivo XML pesado, de difícil visualização, portanto os dados foram convertidos para CSV ([notebook](./notebooks/unesco.ipynb)).
+
+Outro porblema enfrentado foi a dificuldade de integrar as bases de dados, mais especificamente, a a World Happiness Report identifica os paíes por nomes sem o código, o que dificulta muito a comparação. Por exemplo, a Rússia foi referida em uma base como Russia, e na WHR como Russian Federatioin. O processo para corrigir isso foi feito em um notebook, mas com muito trabalho manual ([notebook](./notebooks/WHR.ipynb))
+
+Além das análises descritas acima, outras duas análises foram abandonadas.
+
+A primeira buscava identificar a porcentagem de países que possuiam um indicador X acima da média, dentre os países com o índice de felicidade acima da média. Se a proporção for maior do que 50% haveria uma correlação direto, se for abaixo, inversa. Essa análise foi abandonada, visto que calcular a correlação de Pearson é uma abordagem mais útil para o projeto e que substitui por completo essa análise. Query utilizada.
+
+~~~SQL
+CREATE VIEW HAPPYVIDA AS
+SELECT W.COUNTRYCODE, W.ANO, W.HAPPINESSSCORE, U.SP_DYN_LE00_IN AS EXPECVIDA
+    FROM WHR W, UNESCO U
+    WHERE W.COUNTRYCODE = U.LOCAL AND W.ANO = U.ANO AND W.ANO = 2016;
+CREATE VIEW ABOVEEXPEC AS
+SELECT COUNTRYCODE, EXPECVIDA FROM HAPPYVIDA
+    WHERE EXPECVIDA>(SELECT AVG(EXPECVIDA) FROM HAPPYVIDA)
+    ORDER BY EXPECVIDA;
+CREATE VIEW ABOVEHAPPY AS
+SELECT COUNTRYCODE, HAPPINESSSCORE FROM HAPPYVIDA
+    WHERE HAPPINESSSCORE>(SELECT AVG(HAPPINESSSCORE) FROM HAPPYVIDA)
+    ORDER BY HAPPINESSSCORE;
+-- TOTAL DE PAISES EM 2016
+SELECT COUNT(COUNTRYCODE) FROM HAPPYVIDA;
+-- TOTAL DE PAISES COM FELICIDADE ACIMA DA MEDIA EM 2016
+SELECT COUNT(COUNTRYCODE) FROM ABOVEHAPPY;
+-- TOTAL DE PAISES COM EXPECTATIVA DE VIDA ACIMA DA MEDIA EM 2016
+SELECT COUNT(COUNTRYCODE) FROM ABOVEEXPEC;
+-- TOTAL DE PAISES COM FELICIDADE E EXPECTATIVA DE VIDA ACIMA DE MEDIA EM 2016
+SELECT COUNT(H.COUNTRYCODE)
+    FROM ABOVEHAPPY H, ABOVEEXPEC E
+    WHERE H.COUNTRYCODE = E.COUNTRYCODE;
+~~~
+
+Outra análise abandonada foi a construção de um grafo com a distribuição geográfica dos países, ele seria uma árvores contendo países, subregiões e regiões, coloridas de acordo com o índice de felicidade. A análise não prosseguiu, pois o grafo não permitiu análises mais aprofundadas, por não ser homogêneo, além disso, o critério geográfico apresnetava alguns padrões interessantes, mas não permitia uma conexão com as outras análises do projeto. De qualquer forma, o grafo pode ser visto abaixo. As cores utilizadas nos países foram escolhidas pelo próprio neo4j.
+
+<img src="./assets/images/grafo-regioes.jpeg"/>
+
+<ul>
+  <li> Os países são as folhas </li>
+  <li> Verde: índice de felicidade ≥ 0,75 </li>  
+  <li> Vermelho: 0,75 > índice ≥ 0,5 </li>  
+  <li> Azul claro: 0,25 ≥ índice > 0,5 </li>  
+  <li> Bege: índice < 0,25 </li>  
+  <li> Laranja: sem dados </li>  
+</ul>
+
 ## Resultados e Discussão
 
 ### Modelo relacional
@@ -163,11 +211,25 @@ Esse grafo é interessante pois os países de mesma cor (índice de felicidade p
   <li> O tamanho do nó é proporcional ao seu índice de felicidade </li>  
 </ul>
 
-Apesar de haver exceções, é possível perceber que países de uma mesma comunidade (cor) têm índices de felicidade parecidos (tamanho do nó), existem algumas exceções, mas o comportamento geral parece coerente.
+Na visualização acima, o Gephi foi utilizado para gerar um grafo cujas cores indicam as comunidades, e o tamanho do nó, o seu índice de felicidade.
+
+É possível perceber que países de uma mesma comunidade (cor) têm índices de felicidade parecidos (tamanho do nó), existem algumas exceções, mas o comportamento geral parece coerente.
+
+Uma possibilidade interessante a se analisar é a possibilidade de usar o fator de semelhança como um preditor, isto é, dado um país com índice de felicidade desconhecido, tentar utilizar outros indicadores para inferir o quão feliz a populaçõa se sente. Para isso, mais dados seriam necessários, para ter a possibilidade de criar um conjunto de testes. Também seria necessário definir uma métrica para avaliar o preditor.
+
+Deixando essa digressão de lado, o grafo reforçou a hipótese inicial e validou os indicadores com maior correlação com o índice de felicidade como valores interessantes a serem analisados, ao tentar estudar a felicidade da população.
 
 
 ## Conclusões
- 
+
+A partir do grafo de semelhança construído foi possível perceber que países na mesma comunidade de semelhança possuíam níveis próximos de felicidade. O fator de semelhança aparenta, portanto, ser uma medida promissora para analisar a felicidade de um paí. No entanto não existe um conjunto de testes para comprovar esta hipótese, já que todos os países com dados conhecidos foram utilizados para gerar o modelo (fator de semelhança), não existindo um conjunto separado de dados para avaliar o seu desempenho de maneira apropriada.
+
+Também é possível perceber com base no grafo de localização geográfica que estas comunidades não possuem relação forte com a localização de um país, apenas, provavelmente, com seus fatores socioeconômicos, justamente o que foi utilizados nas análises. Por exemplo, Brasil, Belarus, Malásia, Costa Rica, México e Panamá estão numa mesma comunidade.
+
+Um fato importante a se destacar é que o índice de felicidade do World Happiness Report é um resultado subjetivo que depende basicamente da percepção de uma amostra da população de um país sobre sua própria felicidade, então muitos outros fatores baseados em outras evidências empíricas foram deixadas de fora da análise que poderiam alterar alguns dos resultados, no entanto, isso não invalida os resultados interessantes que foram produzidos.
+
+As dificuldades do projeto também demonstraram a necessidade de padronizar a os dados, sobretudo as chaves do modelo relacional, visto que muitos problemas foram provenientes dessas inconsistências. Outro apredizado muito claro é a necessidade de definir bem o escopo de uma análise, pois isso permite análises mais focadas e facilita a integração dos dados.
+
 ## Modelo conceitual final
 
 <img src="./assets/images/modelo_conceitual.png">
