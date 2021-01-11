@@ -20,7 +20,7 @@ Andrey Torres de Lima, 231442
 
 ## Resumo do Projeto
 
-Saúde mental, um tema tão importante. Ela é extremamente importante na vida de todos e às vezes tão negligenciada. Quais serão os fatores que a afetam direta e indiretamente, o que pode influenciar a saúde mental de uma pessoa, ou até mesmo, uma população? Alimentação? Desemprego, qualidade de vida, educação, arborização, vida em cidades, país de nascimento, religião, consumo de drogas, qualidade do ar, incidência de câncer? Muitas coisas podem acabar influenciando o estado psicológico de um indivíduo e nem imaginamos. Esta é a ideia deste projeto, analisar diversos fatores que podem afatar a saúde mental e descobrir se há alguma relação, se os dados mostram alguma correlação concreta entre esses fatores e a saúde mental da população, o que pode acabar possibilitando políticas efetivas para melhorar a qualidade de vida das pessoas.
+O projeto visa utilizar os dados socioeconômicos de diversas nações e o índice de felicidade do World Happiness Report para analisar como fatores socioecômicos se relacionam à felicidade das pessoas e que características fazem uma nação ser semelhante a outra quanto às suas felicidades. Para fazer essas observações foram usadas e trabalhadas as bases de dados da Unesco, ILOSTAT e a já citada WHR, trabalhadas usando SQL e Python para permitir as análises desejadas e criar visualizações que permitam os objetivos do projeto.
 
 # Resultados finais
 
